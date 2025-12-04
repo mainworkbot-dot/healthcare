@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Wellness Guide - Science-Based Health Advice</title>
-    <meta name="description" content="Science-based health information, wellness tips, and nutrition advice for a healthier life">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --primary: #2e7d32;
@@ -50,73 +46,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-        
-        /* Cookie Consent Banner */
-        #cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 20px;
-            z-index: 1000;
-            display: none;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .cookie-text p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .cookie-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .cookie-btn.accept {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .cookie-btn.accept:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .cookie-btn.reject {
-            background-color: transparent;
-            color: white;
-            border: 1px solid #666;
-        }
-        
-        .cookie-btn.reject:hover {
-            background-color: rgba(255,255,255,0.1);
         }
         
         /* Header Styles */
@@ -173,9 +102,6 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text);
         }
         
         /* Hero Section */
@@ -207,8 +133,6 @@
             border-radius: 5px;
             font-weight: 500;
             transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
         }
         
         .btn:hover {
@@ -282,12 +206,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, opacity 0.3s;
-            opacity: 1;
-        }
-        
-        .article-card.hidden {
-            display: none;
+            transition: transform 0.3s;
         }
         
         .article-card:hover {
@@ -355,7 +274,6 @@
             text-align: center;
             transition: transform 0.3s;
             cursor: pointer;
-            border: none;
         }
         
         .calculator-card:hover {
@@ -407,13 +325,6 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-light);
-            background: none;
-            border: none;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .calculator-form {
@@ -814,16 +725,6 @@
                 margin: 20px auto;
                 padding: 20px;
             }
-            
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cookie-buttons {
-                width: 100%;
-                justify-content: center;
-            }
         }
         
         /* Page Content Management */
@@ -839,42 +740,14 @@
         nav ul.show {
             display: flex !important;
         }
-        
-        /* Loading indicator */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--white);
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-consent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies and similar technologies to provide the best experience on our website. This includes analyzing site traffic. By clicking "Accept", you consent to our use of cookies as described in our <a href="#privacy" class="nav-link" data-page="privacy" style="color: var(--primary-light);">Privacy Policy</a>.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button id="reject-cookies" class="cookie-btn reject">Reject Non-Essential</button>
-                <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <span class="logo-icon" role="img" aria-label="Health and Wellness">🌿</span>
+                <span class="logo-icon">🌿</span>
                 <h1>Health & Wellness Guide</h1>
             </div>
             <nav>
@@ -885,7 +758,7 @@
                     <li><a href="#privacy" class="nav-link" data-page="privacy">Privacy Policy</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu" aria-label="Toggle navigation menu">☰</button>
+            <div class="mobile-menu">☰</div>
         </div>
     </header>
 
@@ -976,6 +849,15 @@
                             </div>
                         </article>
 
+                        <article class="article-card" data-category="sleep">
+                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            <div class="article-content">
+                                <h3>Sleep Optimization for Athletic Performance</h3>
+                                <p>Science-backed strategies to enhance recovery, performance, and injury prevention through optimized sleep.</p>
+                                <a href="#" class="read-more" data-article="sleep-performance">Read More <i>→</i></a>
+                            </div>
+                        </article>
+
                         <!-- Mental Health Articles -->
                         <article class="article-card" data-category="mental-health">
                             <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
@@ -1013,6 +895,34 @@
                                 <a href="#" class="read-more" data-article="cancer-prevention">Read More <i>→</i></a>
                             </div>
                         </article>
+
+                        <article class="article-card" data-category="preventive-care">
+                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            <div class="article-content">
+                                <h3>Heart Disease Prevention: Beyond Cholesterol</h3>
+                                <p>Comprehensive approach to cardiovascular health that goes beyond traditional risk factors.</p>
+                                <a href="#" class="read-more" data-article="heart-disease-prevention">Read More <i>→</i></a>
+                            </div>
+                        </article>
+
+                        <!-- Healthy Aging Articles -->
+                        <article class="article-card" data-category="healthy-aging">
+                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            <div class="article-content">
+                                <h3>Brain Health and Cognitive Longevity</h3>
+                                <p>Science-backed strategies to maintain sharp cognitive function throughout your life.</p>
+                                <a href="#" class="read-more" data-article="brain-health">Read More <i>→</i></a>
+                            </div>
+                        </article>
+
+                        <article class="article-card" data-category="healthy-aging">
+                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                            <div class="article-content">
+                                <h3>Bone Health and Osteoporosis Prevention</h3>
+                                <p>Complete guide to maintaining strong bones and preventing age-related bone loss.</p>
+                                <a href="#" class="read-more" data-article="bone-health">Read More <i>→</i></a>
+                            </div>
+                        </article>
                     </div>
                 </section>
             </div>
@@ -1028,35 +938,35 @@
                 
                 <div class="calculators-grid">
                     <div class="calculator-card" data-calculator="bmi">
-                        <div class="calculator-icon" role="img" aria-label="BMI Calculator">⚖️</div>
+                        <div class="calculator-icon">⚖️</div>
                         <h3>BMI Calculator</h3>
                         <p>Calculate your Body Mass Index and understand your weight category</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="calories">
-                        <div class="calculator-icon" role="img" aria-label="Calorie Calculator">🔥</div>
+                        <div class="calculator-icon">🔥</div>
                         <h3>Calorie Needs</h3>
                         <p>Determine your daily calorie requirements based on your goals</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="heart-rate">
-                        <div class="calculator-icon" role="img" aria-label="Heart Rate Calculator">❤️</div>
+                        <div class="calculator-icon">❤️</div>
                         <h3>Heart Rate Zones</h3>
                         <p>Find your optimal heart rate zones for different types of exercise</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="water">
-                        <div class="calculator-icon" role="img" aria-label="Water Intake Calculator">💧</div>
+                        <div class="calculator-icon">💧</div>
                         <h3>Water Intake</h3>
                         <p>Calculate your recommended daily water intake for optimal hydration</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="sleep">
-                        <div class="calculator-icon" role="img" aria-label="Sleep Calculator">😴</div>
+                        <div class="calculator-icon">😴</div>
                         <h3>Sleep Assessment</h3>
                         <p>Evaluate your sleep quality and get personalized recommendations</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
@@ -1077,35 +987,35 @@
                 
                 <div class="calculators-grid">
                     <div class="calculator-card" data-calculator="bmi">
-                        <div class="calculator-icon" role="img" aria-label="BMI Calculator">⚖️</div>
+                        <div class="calculator-icon">⚖️</div>
                         <h3>BMI Calculator</h3>
                         <p>Calculate your Body Mass Index and understand your weight category</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="calories">
-                        <div class="calculator-icon" role="img" aria-label="Calorie Calculator">🔥</div>
+                        <div class="calculator-icon">🔥</div>
                         <h3>Calorie Needs</h3>
                         <p>Determine your daily calorie requirements based on your goals</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="heart-rate">
-                        <div class="calculator-icon" role="img" aria-label="Heart Rate Calculator">❤️</div>
+                        <div class="calculator-icon">❤️</div>
                         <h3>Heart Rate Zones</h3>
                         <p>Find your optimal heart rate zones for different types of exercise</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="water">
-                        <div class="calculator-icon" role="img" aria-label="Water Intake Calculator">💧</div>
+                        <div class="calculator-icon">💧</div>
                         <h3>Water Intake</h3>
                         <p>Calculate your recommended daily water intake for optimal hydration</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
                     </div>
                     
                     <div class="calculator-card" data-calculator="sleep">
-                        <div class="calculator-icon" role="img" aria-label="Sleep Calculator">😴</div>
+                        <div class="calculator-icon">😴</div>
                         <h3>Sleep Assessment</h3>
                         <p>Evaluate your sleep quality and get personalized recommendations</p>
                         <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
@@ -1209,7 +1119,7 @@
         </section>
     </div>
 
-    <!-- Privacy Policy Page (Updated without Advertising Disclosure) -->
+    <!-- Privacy Policy Page -->
     <div id="privacy-page" class="page-content hidden">
         <section class="legal-page">
             <div class="legal-container">
@@ -1235,23 +1145,17 @@
                     <ul>
                         <li>To provide and maintain our service</li>
                         <li>To notify you about changes to our service</li>
+                        <li>To provide customer support</li>
                         <li>To gather analysis or valuable information so that we can improve our service</li>
                         <li>To monitor the usage of our service</li>
                         <li>To detect, prevent and address technical issues</li>
                     </ul>
-                    
-                    <h2>Cookies and Tracking Technologies</h2>
-                    <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
-                    
-                    <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
                     
                     <h2>Data Security</h2>
                     <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know.</p>
                     
                     <h2>Your Legal Rights</h2>
                     <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, or to withdraw consent.</p>
-                    
-                    <p>If you wish to exercise any of these rights, please contact us through the contact information provided on this website.</p>
                     
                     <a href="#home" class="back-to-home nav-link" data-page="home">← Back to Home</a>
                 </div>
@@ -1725,7 +1629,7 @@
             <h2>Special Populations and Considerations</h2>
 
             <h3>HIIT for Weight Loss</h3>
-            <p>Research in the British Journal of Sports Medicine shows that HIIT can be particularly effective for fat loss, especially reducing abdominal and visceral fat. The combination of high calorie burn during exercise and elevated metabolism afterward creates an optimal environment for fat loss.</p>
+            <p>Research in the British Journal of Sports Medicine shows HIIT can be particularly effective for fat loss, especially reducing abdominal and visceral fat. The combination of high calorie burn during exercise and elevated metabolism afterward creates an optimal environment for fat loss.</p>
 
             <h3>HIIT for Older Adults</h3>
             <p>Modified HIIT can benefit older populations by improving cardiovascular health, maintaining muscle mass, and enhancing functional capacity. Reduce impact and intensity while maintaining the interval structure.</p>
@@ -1755,6 +1659,7 @@
         </div>
     </div>
 
+    <!-- Additional Articles -->
     <!-- Article 4: Mindfulness Meditation -->
     <div id="mindfulness-meditation-article" class="page-content hidden">
         <div class="article-hero" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
@@ -1828,7 +1733,7 @@
     <!-- BMI Calculator Modal -->
     <div id="bmi-calculator" class="calculator-modal">
         <div class="calculator-modal-content">
-            <button class="close-calculator" aria-label="Close calculator">&times;</button>
+            <span class="close-calculator">&times;</span>
             <h2>BMI Calculator</h2>
             <p>Body Mass Index (BMI) is a measure of body fat based on height and weight.</p>
             
@@ -1857,7 +1762,7 @@
     <!-- Calorie Calculator Modal -->
     <div id="calories-calculator" class="calculator-modal">
         <div class="calculator-modal-content">
-            <button class="close-calculator" aria-label="Close calculator">&times;</button>
+            <span class="close-calculator">&times;</span>
             <h2>Daily Calorie Needs Calculator</h2>
             <p>Calculate your daily calorie requirements based on your activity level and goals.</p>
             
@@ -1919,7 +1824,7 @@
     <!-- Heart Rate Calculator Modal -->
     <div id="heart-rate-calculator" class="calculator-modal">
         <div class="calculator-modal-content">
-            <button class="close-calculator" aria-label="Close calculator">&times;</button>
+            <span class="close-calculator">&times;</span>
             <h2>Heart Rate Zones Calculator</h2>
             <p>Calculate your optimal heart rate zones for different types of exercise.</p>
             
@@ -1947,7 +1852,7 @@
     <!-- Water Intake Calculator Modal -->
     <div id="water-calculator" class="calculator-modal">
         <div class="calculator-modal-content">
-            <button class="close-calculator" aria-label="Close calculator">&times;</button>
+            <span class="close-calculator">&times;</span>
             <h2>Water Intake Calculator</h2>
             <p>Calculate your recommended daily water intake for optimal hydration.</p>
             
@@ -1990,7 +1895,7 @@
     <!-- Sleep Assessment Calculator Modal -->
     <div id="sleep-calculator" class="calculator-modal">
         <div class="calculator-modal-content">
-            <button class="close-calculator" aria-label="Close calculator">&times;</button>
+            <span class="close-calculator">&times;</span>
             <h2>Sleep Quality Assessment</h2>
             <p>Evaluate your sleep quality and get personalized recommendations.</p>
             
@@ -2079,7 +1984,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025-2026 Health & Wellness Guide. All rights reserved. <a href="#privacy" class="nav-link" data-page="privacy" style="color: #999;">Privacy Policy</a> | <a href="#terms" class="nav-link" data-page="terms" style="color: #999;">Terms</a></p>
+                <p>&copy; 2025-2026 Health & Wellness Guide. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2087,44 +1992,12 @@
     <script>
         // Complete Navigation System
         document.addEventListener('DOMContentLoaded', function() {
-            // Cookie Consent System
-            const cookieConsent = document.getElementById('cookie-consent');
-            const acceptCookies = document.getElementById('accept-cookies');
-            const rejectCookies = document.getElementById('reject-cookies');
-            
-            // Check if user has already made a choice
-            const cookieChoice = localStorage.getItem('cookieConsent');
-            
-            if (!cookieChoice) {
-                // Show cookie consent after 2 seconds
-                setTimeout(() => {
-                    cookieConsent.style.display = 'block';
-                }, 2000);
-            }
-            
-            // Accept cookies
-            acceptCookies.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieConsent.style.display = 'none';
-                // Store basic preferences
-                console.log('Basic cookies accepted');
-            });
-            
-            // Reject non-essential cookies
-            rejectCookies.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'rejected');
-                cookieConsent.style.display = 'none';
-                console.log('Non-essential cookies rejected');
-            });
-            
             // Mobile menu toggle
             const mobileMenu = document.querySelector('.mobile-menu');
             if (mobileMenu) {
                 mobileMenu.addEventListener('click', function() {
                     const navUl = document.querySelector('nav ul');
-                    if (navUl) {
-                        navUl.classList.toggle('show');
-                    }
+                    navUl.classList.toggle('show');
                 });
             }
             
@@ -2161,7 +2034,7 @@
                 
                 // Close mobile menu if open
                 const navUl = document.querySelector('nav ul');
-                if (navUl && navUl.classList.contains('show')) {
+                if (navUl.classList.contains('show')) {
                     navUl.classList.remove('show');
                 }
             }
@@ -2213,16 +2086,12 @@
                     
                     const category = this.getAttribute('data-category');
                     
-                    // Show/hide articles based on category with smooth transition
+                    // Show/hide articles based on category
                     articleCards.forEach(card => {
                         if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.opacity = '1';
-                            card.style.pointerEvents = 'auto';
-                            card.classList.remove('hidden');
+                            card.style.display = 'block';
                         } else {
-                            card.style.opacity = '0';
-                            card.style.pointerEvents = 'none';
-                            card.classList.add('hidden');
+                            card.style.display = 'none';
                         }
                     });
                 });
@@ -2240,29 +2109,19 @@
                     
                     // Then filter articles
                     categoryFilters.forEach(f => f.classList.remove('active'));
-                    const targetFilter = document.querySelector(`.category-filter[data-category="${category}"]`);
-                    if (targetFilter) {
-                        targetFilter.classList.add('active');
-                    }
+                    document.querySelector(`.category-filter[data-category="${category}"]`).classList.add('active');
                     
                     articleCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.opacity = '1';
-                            card.style.pointerEvents = 'auto';
-                            card.classList.remove('hidden');
+                        if (card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
                         } else {
-                            card.style.opacity = '0';
-                            card.style.pointerEvents = 'none';
-                            card.classList.add('hidden');
+                            card.style.display = 'none';
                         }
                     });
                     
                     // Scroll to articles section
                     setTimeout(() => {
-                        const articlesGrid = document.querySelector('.articles-grid');
-                        if (articlesGrid) {
-                            articlesGrid.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        document.querySelector('.articles-grid').scrollIntoView({ behavior: 'smooth' });
                     }, 100);
                 });
             });
@@ -2287,6 +2146,9 @@
                             break;
                         case 'mindfulness-meditation':
                             articleId = 'mindfulness-meditation-article';
+                            break;
+                        case 'sleep-performance':
+                            articleId = 'sleep-performance-article';
                             break;
                         default:
                             articleId = articleType + '-article';
@@ -2314,7 +2176,6 @@
                     const modal = document.getElementById(`${calculatorType}-calculator`);
                     if (modal) {
                         modal.style.display = 'block';
-                        document.body.style.overflow = 'hidden'; // Prevent scrolling
                     }
                 });
             });
@@ -2323,10 +2184,7 @@
             closeButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const modal = this.closest('.calculator-modal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto'; // Restore scrolling
-                    }
+                    modal.style.display = 'none';
                 });
             });
             
@@ -2335,42 +2193,14 @@
                 calculatorModals.forEach(modal => {
                     if (event.target === modal) {
                         modal.style.display = 'none';
-                        document.body.style.overflow = 'auto'; // Restore scrolling
                     }
                 });
             });
             
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    calculatorModals.forEach(modal => {
-                        if (modal.style.display === 'block') {
-                            modal.style.display = 'none';
-                            document.body.style.overflow = 'auto'; // Restore scrolling
-                        }
-                    });
-                }
-            });
-            
             // BMI Calculator
             document.getElementById('calculate-bmi').addEventListener('click', function() {
-                const heightInput = document.getElementById('bmi-height');
-                const weightInput = document.getElementById('bmi-weight');
-                const height = parseFloat(heightInput.value) / 100; // Convert to meters
-                const weight = parseFloat(weightInput.value);
-                
-                // Validation
-                if (!height || height < 1 || height > 2.5) {
-                    alert('Please enter a valid height between 100cm and 250cm');
-                    heightInput.focus();
-                    return;
-                }
-                
-                if (!weight || weight < 30 || weight > 200) {
-                    alert('Please enter a valid weight between 30kg and 200kg');
-                    weightInput.focus();
-                    return;
-                }
+                const height = parseFloat(document.getElementById('bmi-height').value) / 100; // Convert to meters
+                const weight = parseFloat(document.getElementById('bmi-weight').value);
                 
                 if (height && weight) {
                     const bmi = weight / (height * height);
@@ -2395,7 +2225,6 @@
                     }
                     
                     resultDiv.style.display = 'block';
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
             
@@ -2407,25 +2236,6 @@
                 const weight = parseFloat(document.getElementById('cal-weight').value);
                 const activity = parseFloat(document.getElementById('cal-activity').value);
                 const goal = document.getElementById('cal-goal').value;
-                
-                // Validation
-                if (!age || age < 15 || age > 100) {
-                    alert('Please enter a valid age between 15 and 100');
-                    document.getElementById('cal-age').focus();
-                    return;
-                }
-                
-                if (!height || height < 100 || height > 250) {
-                    alert('Please enter a valid height between 100cm and 250cm');
-                    document.getElementById('cal-height').focus();
-                    return;
-                }
-                
-                if (!weight || weight < 30 || weight > 200) {
-                    alert('Please enter a valid weight between 30kg and 200kg');
-                    document.getElementById('cal-weight').focus();
-                    return;
-                }
                 
                 if (age && height && weight) {
                     // Mifflin-St Jeor Equation
@@ -2462,7 +2272,6 @@
                     
                     interpretationElement.textContent = interpretation;
                     resultDiv.style.display = 'block';
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
             
@@ -2470,12 +2279,6 @@
             document.getElementById('calculate-heart-rate').addEventListener('click', function() {
                 const age = parseInt(document.getElementById('hr-age').value);
                 const restingHR = parseInt(document.getElementById('hr-resting').value) || 70;
-                
-                if (!age || age < 15 || age > 100) {
-                    alert('Please enter a valid age between 15 and 100');
-                    document.getElementById('hr-age').focus();
-                    return;
-                }
                 
                 if (age) {
                     const maxHR = 220 - age;
@@ -2503,7 +2306,6 @@
                     
                     zonesElement.innerHTML = zonesHTML;
                     resultDiv.style.display = 'block';
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
             
@@ -2512,12 +2314,6 @@
                 const weight = parseFloat(document.getElementById('water-weight').value);
                 const activity = document.getElementById('water-activity').value;
                 const climate = document.getElementById('water-climate').value;
-                
-                if (!weight || weight < 30 || weight > 200) {
-                    alert('Please enter a valid weight between 30kg and 200kg');
-                    document.getElementById('water-weight').focus();
-                    return;
-                }
                 
                 if (weight) {
                     let baseWater = weight * 0.033; // Base: 33ml per kg
@@ -2548,7 +2344,6 @@
                     resultElement.textContent = `${liters.toFixed(1)} liters (${Math.round(cups)} cups) per day`;
                     interpretationElement.textContent = 'This is your recommended daily water intake. Remember to adjust based on thirst and activity levels.';
                     resultDiv.style.display = 'block';
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
             
@@ -2558,18 +2353,6 @@
                 const quality = parseInt(document.getElementById('sleep-quality').value);
                 const wakeups = document.getElementById('sleep-wakeups').value;
                 const morning = document.getElementById('sleep-morning').value;
-                
-                if (!hours || hours < 4 || hours > 12) {
-                    alert('Please enter a valid sleep duration between 4 and 12 hours');
-                    document.getElementById('sleep-hours').focus();
-                    return;
-                }
-                
-                if (!quality || quality < 1 || quality > 10) {
-                    alert('Please rate your sleep quality between 1 and 10');
-                    document.getElementById('sleep-quality').focus();
-                    return;
-                }
                 
                 if (hours && quality) {
                     // Calculate sleep score (0-100)
@@ -2642,19 +2425,11 @@
                     interpretationElement.textContent = interpretation;
                     recommendationsElement.innerHTML = recommendations;
                     resultDiv.style.display = 'block';
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             });
             
             // Initialize by showing home page
             showPage('home-content');
-            
-            // Handle browser back/forward buttons
-            window.addEventListener('popstate', function(event) {
-                if (event.state && event.state.page) {
-                    showPage(event.state.page);
-                }
-            });
         });
     </script>
 </body>
