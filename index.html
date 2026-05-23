@@ -1,2436 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health & Wellness Guide - Science-Based Health Advice</title>
+    <title>GlowLab｜專業美妝評測｜保養推薦</title>
     <meta name="fo-verify" content="399078d8-992e-4589-b12d-bc305864ce28" />
+    <meta name="description" content="專業美妝評測｜保養品真實心得｜Rakuten 合作推廣｜科學保養指南">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2e7d32;
-            --primary-light: #4caf50;
-            --primary-dark: #1b5e20;
-            --secondary: #ff9800;
-            --text: #333;
-            --text-light: #666;
-            --background: #f9f9f9;
-            --white: #ffffff;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #fef9f7;
+            color: #2c2c2c;
+            scroll-behavior: smooth;
         }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: var(--primary-dark);
-        }
-        
+
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        
-        /* Header Styles */
+
+        /* 主色調：玫瑰金 + 柔粉 */
+        :root {
+            --rose: #e8b4b8;
+            --rose-dark: #d49b9f;
+            --blush: #fadadd;
+            --deep-mauve: #6b4e5e;
+            --soft-gray: #f8f5f2;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+            --radius: 24px;
+            --radius-sm: 16px;
+        }
+
+        /* 按鈕 */
+        .btn {
+            display: inline-block;
+            background: var(--rose);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 40px;
+            transition: 0.25s;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-dark {
+            background: var(--deep-mauve);
+        }
+
+        .btn-dark:hover {
+            background: #543e4b;
+            transform: translateY(-2px);
+        }
+
+        .btn:hover {
+            background: var(--rose-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Header */
         header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
+            background: white;
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 16px 0;
         }
-        
+
         .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo h1 {
             font-size: 1.8rem;
-            color: var(--primary);
-            margin-left: 10px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--rose), var(--deep-mauve));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-        
+
         nav ul {
             display: flex;
+            gap: 32px;
             list-style: none;
         }
-        
-        nav li {
-            margin-left: 25px;
-        }
-        
+
         nav a {
+            text-decoration: none;
             font-weight: 500;
-            color: var(--text);
+            color: #444;
+            transition: 0.2s;
         }
-        
-        nav a:hover, nav a.active {
-            color: var(--primary);
+
+        nav a:hover {
+            color: var(--rose);
         }
-        
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
-        /* Hero Section */
+
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            color: var(--white);
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-dark);
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .section-title p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Categories Filter */
-        .categories-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-        
-        .category-filter {
-            background-color: var(--white);
-            padding: 15px 25px;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            font-weight: 500;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        
-        .category-filter:hover {
-            background-color: var(--primary-light);
-            color: var(--white);
-        }
-        
-        .category-filter.active {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary-dark);
-        }
-        
-        /* Articles Grid */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .article-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .article-img {
-            height: 200px;
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .article-content {
-            padding: 20px;
-        }
-        
-        .article-content h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .article-content p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .read-more {
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .read-more i {
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-        
-        .read-more:hover i {
-            transform: translateX(3px);
-        }
-        
-        /* Calculators Section */
-        .calculators-section {
-            background-color: var(--white);
-            padding: 60px 0;
-            margin: 60px 0;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .calculators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .calculator-card {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .calculator-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .calculator-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .calculator-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .calculator-card p {
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        /* Calculator Modal */
-        .calculator-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-        
-        .calculator-modal-content {
-            background-color: var(--white);
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-        }
-        
-        .close-calculator {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-        }
-        
-        .calculator-form {
-            margin: 20px 0;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text);
-        }
-        
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .calculator-result {
-            background-color: var(--background);
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 10px 0;
-        }
-        
-        .result-interpretation {
-            color: var(--text-light);
-            margin-top: 10px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #222;
-            color: var(--white);
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-light);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
-            color: #ccc;
-        }
-        
-        .footer-column a:hover {
-            color: var(--primary-light);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        /* Article Page Styles */
-        .article-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 100px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .article-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .article-body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
-        }
-        
-        .article-body h2 {
-            color: var(--primary-dark);
-            margin: 40px 0 20px;
-            font-size: 1.8rem;
-        }
-        
-        .article-body h3 {
-            color: var(--primary);
-            margin: 30px 0 15px;
-            font-size: 1.4rem;
-        }
-        
-        .article-body p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        .article-body ul, .article-body ol {
-            margin: 20px 0 20px 30px;
-        }
-        
-        .article-body li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .article-body blockquote {
-            border-left: 4px solid var(--primary-light);
-            padding-left: 20px;
-            margin: 30px 0;
-            font-style: italic;
-            color: var(--text-light);
-        }
-        
-        .back-to-blog {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 10px 20px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .back-to-blog:hover {
-            background-color: var(--primary-dark);
-            color: white;
-        }
-        
-        /* About Page Styles */
-        .about-page {
+            background: linear-gradient(120deg, #fff3f0 0%, #ffe9e4 100%);
             padding: 80px 0;
-            background-color: var(--background);
-        }
-        
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .about-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .about-header h1 {
-            color: var(--primary-dark);
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .about-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .about-content {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-section {
-            margin-bottom: 50px;
-        }
-        
-        .about-section h2 {
-            color: var(--primary-dark);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-light);
-        }
-        
-        .about-section h3 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin: 25px 0 15px;
-        }
-        
-        .about-section p {
-            margin-bottom: 15px;
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
-        
-        .about-section ul {
-            margin: 15px 0 15px 30px;
-        }
-        
-        .about-section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        .personal-story {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            margin: 40px 0;
-        }
-        
-        .personal-story h3 {
-            color: white;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-        }
-        
-        .back-to-home {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        .back-to-home:hover {
-            background-color: var(--primary-dark);
-            color: white;
-        }
-        
-        /* Legal Pages Styles */
-        .legal-page {
-            padding: 60px 0;
-            background-color: var(--background);
-            min-height: 70vh;
-        }
-        
-        .legal-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .legal-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .legal-header h1 {
-            color: var(--primary-dark);
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .legal-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-        
-        .legal-content {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .legal-content h2 {
-            color: var(--primary-dark);
-            margin: 30px 0 15px;
-            font-size: 1.5rem;
-        }
-        
-        .legal-content h3 {
-            color: var(--primary);
-            margin: 25px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .legal-content p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .legal-content ul {
-            margin: 15px 0 15px 30px;
-        }
-        
-        .legal-content li {
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-                position: relative;
-            }
-            
-            .logo {
-                margin-bottom: 15px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                display: none;
-                width: 100%;
-                background-color: var(--white);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                box-shadow: var(--shadow);
-                padding: 20px 0;
-            }
-            
-            nav li {
-                margin: 10px 0;
-                text-align: center;
-            }
-            
-            .mobile-menu {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .article-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .legal-content, .about-content {
-                padding: 20px;
-            }
-            
-            .about-content {
-                padding: 30px 20px;
-            }
-            
-            .personal-story {
-                padding: 25px;
-            }
-            
-            .calculators-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .calculator-modal-content {
-                margin: 20px auto;
-                padding: 20px;
-            }
-        }
-        
-        /* Page Content Management */
-        .page-content {
-            display: block;
-        }
-        
-        .hidden {
-            display: none;
+            border-radius: 0 0 48px 48px;
         }
 
-        /* Mobile menu show */
-        nav ul.show {
-            display: flex !important;
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--deep-mauve);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #5c5c5c;
+            margin-bottom: 32px;
+        }
+
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 100%;
+            border-radius: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 美妝評測卡片 */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: var(--deep-mauve);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.25s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .review-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .review-content {
+            padding: 24px;
+        }
+
+        .rating {
+            color: #f5a623;
+            margin: 8px 0;
+        }
+
+        /* 比較表 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #f0e4e0;
+        }
+
+        .comparison-table th {
+            background: var(--rose);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-mauve);
+            color: white;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .affiliate-disclosure {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <span class="logo-icon">🌿</span>
-                <h1>Health & Wellness Guide</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
-                    <li><a href="#calculators" class="nav-link" data-page="calculators">Calculators</a></li>
-                    <li><a href="#privacy" class="nav-link" data-page="privacy">Privacy Policy</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">☰</div>
+
+<!-- 置頂橫幅 Rakuten 推廣 -->
+<div style="background: var(--rose); color: white; text-align: center; padding: 10px; font-size: 0.9rem;">
+    🌸 限時優惠｜透過 Rakuten 購買美妝最高享 15% 回饋 → <a href="https://www.rakuten.com/" target="_blank" style="color: white; font-weight: bold; text-decoration: underline;">立即逛逛</a>
+</div>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">🌸 GlowLab</div>
+        <nav>
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#reviews">評測</a></li>
+                <li><a href="#comparison">排行榜</a></li>
+                <li><a href="#about">關於</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">☰</div>
+    </div>
+</header>
+
+<!-- Hero 區塊 -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>真實測評 · 科學保養</h1>
+            <p>我們實測 100+ 款精華、乳霜、防曬，只推薦真正有效的美妝好物。<br>透過 <strong>Rakuten 購物</strong> 還可享高額現金回饋。</p>
+            <a href="#" class="btn btn-dark">🔥 看本週熱門推薦</a>
         </div>
-    </header>
-
-    <!-- Home Section -->
-    <div id="home-content" class="page-content">
-        <section class="hero">
-            <div class="container">
-                <h2>Your Guide to a Healthier Life</h2>
-                <p>Science-based health information, practical wellness tips, and nutrition advice to help you live your healthiest life.</p>
-                <a href="#home" class="btn">Explore Articles</a>
-            </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="container">
-                <!-- Categories Filter -->
-                <section>
-                    <div class="section-title">
-                        <h2>Explore Our Content by Topic</h2>
-                        <p>Filter articles by health categories</p>
-                    </div>
-                    
-                    <div class="categories-filter">
-                        <div class="category-filter active" data-category="all">All Articles</div>
-                        <div class="category-filter" data-category="nutrition">Nutrition</div>
-                        <div class="category-filter" data-category="fitness">Fitness</div>
-                        <div class="category-filter" data-category="mental-health">Mental Health</div>
-                        <div class="category-filter" data-category="sleep">Sleep</div>
-                        <div class="category-filter" data-category="preventive-care">Preventive Care</div>
-                        <div class="category-filter" data-category="healthy-aging">Healthy Aging</div>
-                    </div>
-                </section>
-
-                <!-- Featured Articles -->
-                <section>
-                    <div class="section-title">
-                        <h2>Featured Health Articles</h2>
-                        <p>Evidence-based information to improve your wellbeing</p>
-                    </div>
-                    
-                    <div class="articles-grid">
-                        <!-- Nutrition Articles -->
-                        <article class="article-card" data-category="nutrition">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>10 Simple Habits for Better Immunity</h3>
-                                <p>Discover easy daily practices that can strengthen your immune system and help protect against illness.</p>
-                                <a href="#" class="read-more" data-article="immunity">Read More <i>→</i></a>
-                            </div>
-                        </article>
-                        
-                        <article class="article-card" data-category="nutrition">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>The Mediterranean Diet: A Complete Guide</h3>
-                                <p>Learn about the health benefits of the Mediterranean diet and how to implement it in your daily life.</p>
-                                <a href="#" class="read-more" data-article="mediterranean">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <!-- Fitness Articles -->
-                        <article class="article-card" data-category="fitness">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Heart-Healthy Exercises for All Ages</h3>
-                                <p>Cardiovascular workouts that improve heart health and can be adapted for any fitness level.</p>
-                                <a href="#" class="read-more" data-article="heart-health">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="fitness">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>High-Intensity Interval Training: Maximizing Fitness</h3>
-                                <p>Science-based HIIT protocols to achieve maximum results in minimal time with proven afterburn effects.</p>
-                                <a href="#" class="read-more" data-article="hiit-workouts">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <!-- Sleep Articles -->
-                        <article class="article-card" data-category="sleep">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Natural Remedies for Better Sleep</h3>
-                                <p>Evidence-based natural solutions to overcome insomnia and improve sleep quality naturally.</p>
-                                <a href="#" class="read-more" data-article="sleep-remedies">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="sleep">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Sleep Optimization for Athletic Performance</h3>
-                                <p>Science-backed strategies to enhance recovery, performance, and injury prevention through optimized sleep.</p>
-                                <a href="#" class="read-more" data-article="sleep-performance">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <!-- Mental Health Articles -->
-                        <article class="article-card" data-category="mental-health">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Morning Routine for Peak Productivity</h3>
-                                <p>Science-backed morning habits that set you up for a successful and productive day.</p>
-                                <a href="#" class="read-more" data-article="morning-routine">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="mental-health">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Mindfulness Meditation for Stress Reduction</h3>
-                                <p>Evidence-based meditation techniques to reduce anxiety, improve focus, and enhance emotional regulation.</p>
-                                <a href="#" class="read-more" data-article="mindfulness-meditation">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <!-- Preventive Care Articles -->
-                        <article class="article-card" data-category="preventive-care">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Healthy Aging: Science of Longevity</h3>
-                                <p>Proven strategies to maintain physical and mental health as you age gracefully.</p>
-                                <a href="#" class="read-more" data-article="healthy-aging">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="preventive-care">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Cancer Prevention Through Lifestyle Choices</h3>
-                                <p>Evidence-based strategies to significantly reduce your cancer risk through daily habits.</p>
-                                <a href="#" class="read-more" data-article="cancer-prevention">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="preventive-care">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Heart Disease Prevention: Beyond Cholesterol</h3>
-                                <p>Comprehensive approach to cardiovascular health that goes beyond traditional risk factors.</p>
-                                <a href="#" class="read-more" data-article="heart-disease-prevention">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <!-- Healthy Aging Articles -->
-                        <article class="article-card" data-category="healthy-aging">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Brain Health and Cognitive Longevity</h3>
-                                <p>Science-backed strategies to maintain sharp cognitive function throughout your life.</p>
-                                <a href="#" class="read-more" data-article="brain-health">Read More <i>→</i></a>
-                            </div>
-                        </article>
-
-                        <article class="article-card" data-category="healthy-aging">
-                            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                            <div class="article-content">
-                                <h3>Bone Health and Osteoporosis Prevention</h3>
-                                <p>Complete guide to maintaining strong bones and preventing age-related bone loss.</p>
-                                <a href="#" class="read-more" data-article="bone-health">Read More <i>→</i></a>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        <!-- Health Calculators Section -->
-        <section class="calculators-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Health Calculators</h2>
-                    <p>Use our interactive tools to assess your health metrics and track your progress</p>
-                </div>
-                
-                <div class="calculators-grid">
-                    <div class="calculator-card" data-calculator="bmi">
-                        <div class="calculator-icon">⚖️</div>
-                        <h3>BMI Calculator</h3>
-                        <p>Calculate your Body Mass Index and understand your weight category</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="calories">
-                        <div class="calculator-icon">🔥</div>
-                        <h3>Calorie Needs</h3>
-                        <p>Determine your daily calorie requirements based on your goals</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="heart-rate">
-                        <div class="calculator-icon">❤️</div>
-                        <h3>Heart Rate Zones</h3>
-                        <p>Find your optimal heart rate zones for different types of exercise</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="water">
-                        <div class="calculator-icon">💧</div>
-                        <h3>Water Intake</h3>
-                        <p>Calculate your recommended daily water intake for optimal hydration</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="sleep">
-                        <div class="calculator-icon">😴</div>
-                        <h3>Sleep Assessment</h3>
-                        <p>Evaluate your sleep quality and get personalized recommendations</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Calculators Page -->
-    <div id="calculators-page" class="page-content hidden">
-        <section class="main-content">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Health Calculators & Tools</h2>
-                    <p>Interactive tools to help you track and improve your health metrics</p>
-                </div>
-                
-                <div class="calculators-grid">
-                    <div class="calculator-card" data-calculator="bmi">
-                        <div class="calculator-icon">⚖️</div>
-                        <h3>BMI Calculator</h3>
-                        <p>Calculate your Body Mass Index and understand your weight category</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="calories">
-                        <div class="calculator-icon">🔥</div>
-                        <h3>Calorie Needs</h3>
-                        <p>Determine your daily calorie requirements based on your goals</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="heart-rate">
-                        <div class="calculator-icon">❤️</div>
-                        <h3>Heart Rate Zones</h3>
-                        <p>Find your optimal heart rate zones for different types of exercise</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="water">
-                        <div class="calculator-icon">💧</div>
-                        <h3>Water Intake</h3>
-                        <p>Calculate your recommended daily water intake for optimal hydration</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                    
-                    <div class="calculator-card" data-calculator="sleep">
-                        <div class="calculator-icon">😴</div>
-                        <h3>Sleep Assessment</h3>
-                        <p>Evaluate your sleep quality and get personalized recommendations</p>
-                        <button class="btn" style="background-color: white; color: var(--primary);">Calculate Now</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- About Page -->
-    <div id="about-page" class="page-content hidden">
-        <section class="about-page">
-            <div class="about-container">
-                <div class="about-header">
-                    <h1>About Health & Wellness Guide</h1>
-                    <p>My personal journey from exhaustion to vitality, and the lessons I've learned along the way</p>
-                </div>
-                
-                <div class="about-content">
-                    <div class="about-section">
-                        <h2>My Personal Health Journey</h2>
-                        <p>Hello! I'm Hugo, the creator behind Health & Wellness Guide. This platform began as my personal health diary and has evolved into a space where I share my ongoing wellness journey, research, and the lessons I've learned along the way.</p>
-                        
-                        <div class="personal-story">
-                            <h3>My Turning Point</h3>
-                            <p>Like many of you, I found myself in my mid-30s feeling exhausted, overwhelmed, and disconnected from my own health. Between work demands, family responsibilities, and the general busyness of life, my wellbeing had taken a backseat.</p>
-                            <p>The turning point came during a vacation where I realized I was too tired to enjoy the experiences I had been looking forward to. That moment sparked a personal revolution - a commitment to understanding my body and reclaiming my vitality.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>Why I Started This Blog</h2>
-                        <h3>From Personal Notes to Shared Journey</h3>
-                        <p>What began as private journaling about my health experiments gradually transformed into this blog. I found that documenting my journey helped me stay accountable to my health goals and process the research I was reading.</p>
-                        <p>As friends started asking for advice based on my experiences, I realized that sharing my journey might help others navigating similar challenges. This blog is my way of paying forward the insights that have transformed my life.</p>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>My Personal Philosophy</h2>
-                        <p>Through my journey, I've developed some core beliefs about health:</p>
-                        <ul>
-                            <li><strong>Health is Personal:</strong> What works for one person may not work for another. I share what has worked for me, but always encourage you to listen to your own body.</li>
-                            <li><strong>Small Changes Create Big Results:</strong> Sustainable health comes from consistent, small improvements rather than dramatic overhauls.</li>
-                            <li><strong>Knowledge is Empowering:</strong> Understanding the "why" behind health recommendations has been crucial for my long-term success.</li>
-                            <li><strong>Progress Over Perfection:</strong> I've had plenty of setbacks. What matters is returning to your health priorities, not achieving flawless execution.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>What You'll Find Here</h2>
-                        <h3>My Personal Experiments</h3>
-                        <p>I share my firsthand experiences with various health approaches:</p>
-                        <ul>
-                            <li><strong>Nutrition Experiments:</strong> Trying different eating patterns and tracking how they affect my energy and digestion</li>
-                            <li><strong>Fitness Journeys:</strong> Documenting my exploration of different exercise modalities</li>
-                            <li><strong>Sleep Optimization:</strong> Sharing my trials with sleep tracking and bedtime routines</li>
-                            <li><strong>Mindfulness Practices:</strong> Reporting on my experiences with meditation and stress management</li>
-                        </ul>
-                        
-                        <h3>Research Deep Dives</h3>
-                        <p>As someone who loves learning, I spend considerable time reading scientific studies and health literature. I share summaries of interesting research and practical applications of scientific findings.</p>
-                        
-                        <h3>Personal Reflections</h3>
-                        <p>This blog also serves as my health journal, where I reflect on lessons learned from successes and challenges, and observations about how lifestyle changes affect my daily life.</p>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>My Commitment to You</h2>
-                        <h3>Authenticity and Transparency</h3>
-                        <p>I promise to always share both my successes and struggles honestly, acknowledge when something doesn't work for me, and update my perspectives as I learn and grow.</p>
-                        
-                        <h3>Respect for Your Journey</h3>
-                        <p>While I share what works for me, I fully recognize that your health journey is unique. I aim to provide information without prescribing solutions and encourage you to consult healthcare professionals for personal advice.</p>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>My Current Focus Areas</h2>
-                        <h3>Ongoing Learning</h3>
-                        <p>I'm currently exploring gut health, hormone balance, movement variety, and deepening my mindfulness practices.</p>
-                        
-                        <h3>Personal Goals</h3>
-                        <p>Some of my current health priorities include maintaining consistent energy throughout the day, building sustainable exercise habits I enjoy, and continuing to learn about nutritional science.</p>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>Join Me on This Journey</h2>
-                        <p>I believe there's power in vulnerability and shared experience. By documenting my health journey publicly, I hope to normalize the ups and downs of pursuing better health and create connection around our shared human experiences with wellness.</p>
-                        <p>If you're on your own health journey, know that I understand the challenges, frustrations, and triumphs. Whether you're just starting out or have been working on your health for years, I'm right here with you - learning, experimenting, and growing alongside you.</p>
-                    </div>
-                    
-                    <div class="about-section">
-                        <h2>A Personal Invitation</h2>
-                        <p>This blog is my way of turning personal challenges into opportunities for growth and connection. I don't have all the answers, but I'm committed to asking good questions and sharing what I learn along the way.</p>
-                        <p>Thank you for being part of this journey with me. Your readership means more than you know, and I'm grateful for the opportunity to share my experiences with you.</p>
-                        <p><em>Here's to our continued health and growth together!</em></p>
-                    </div>
-                    
-                    <a href="#home" class="back-to-home nav-link" data-page="home">← Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Privacy Policy Page -->
-    <div id="privacy-page" class="page-content hidden">
-        <section class="legal-page">
-            <div class="legal-container">
-                <div class="legal-header">
-                    <h1>Privacy Policy</h1>
-                    <p>Last updated: January 2025</p>
-                </div>
-                <div class="legal-content">
-                    <h2>Introduction</h2>
-                    <p>At Health & Wellness Guide, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.</p>
-                    
-                    <h2>Information We Collect</h2>
-                    <p>We may collect, use, store, and transfer different kinds of personal data about you, which we have grouped together as follows:</p>
-                    <ul>
-                        <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
-                        <li><strong>Contact Data:</strong> includes email address.</li>
-                        <li><strong>Technical Data:</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
-                        <li><strong>Usage Data:</strong> includes information about how you use our website, products, and services.</li>
-                    </ul>
-                    
-                    <h2>How We Use Your Information</h2>
-                    <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
-                    <ul>
-                        <li>To provide and maintain our service</li>
-                        <li>To notify you about changes to our service</li>
-                        <li>To provide customer support</li>
-                        <li>To gather analysis or valuable information so that we can improve our service</li>
-                        <li>To monitor the usage of our service</li>
-                        <li>To detect, prevent and address technical issues</li>
-                    </ul>
-                    
-                    <h2>Data Security</h2>
-                    <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know.</p>
-                    
-                    <h2>Your Legal Rights</h2>
-                    <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, or to withdraw consent.</p>
-                    
-                    <a href="#home" class="back-to-home nav-link" data-page="home">← Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Terms of Service Page -->
-    <div id="terms-page" class="page-content hidden">
-        <section class="legal-page">
-            <div class="legal-container">
-                <div class="legal-header">
-                    <h1>Terms of Service</h1>
-                    <p>Effective: January 2025 - December 2026</p>
-                </div>
-                <div class="legal-content">
-                    <h2>1. Acceptance of Terms</h2>
-                    <p>By accessing and using Health & Wellness Guide ("the Website"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this service.</p>
-                    
-                    <h2>2. Use License</h2>
-                    <p>Permission is granted to temporarily access the materials (information or software) on Health & Wellness Guide's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
-                    <ul>
-                        <li>Modify or copy the materials</li>
-                        <li>Use the materials for any commercial purpose or for any public display</li>
-                        <li>Attempt to decompile or reverse engineer any software contained on the Website</li>
-                        <li>Remove any copyright or other proprietary notations from the materials</li>
-                        <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
-                    </ul>
-                    
-                    <h2>3. Medical Disclaimer</h2>
-                    <p>The content provided on Health & Wellness Guide is for informational purposes only and is not intended as medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
-                    <p>The information on this website has not been evaluated by the Food and Drug Administration. The products and supplements mentioned are not intended to diagnose, treat, cure, or prevent any disease.</p>
-                    
-                    <h2>4. Limitations</h2>
-                    <p>In no event shall Health & Wellness Guide or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Health & Wellness Guide's website, even if Health & Wellness Guide or a Health & Wellness Guide authorized representative has been notified orally or in writing of the possibility of such damage.</p>
-                    
-                    <h2>5. Revisions and Errata</h2>
-                    <p>The materials appearing on Health & Wellness Guide's website could include technical, typographical, or photographic errors. Health & Wellness Guide does not warrant that any of the materials on its website are accurate, complete, or current. Health & Wellness Guide may make changes to the materials contained on its website at any time without notice.</p>
-                    
-                    <h2>6. Links</h2>
-                    <p>Health & Wellness Guide has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Health & Wellness Guide of the site. Use of any such linked website is at the user's own risk.</p>
-                    
-                    <h2>7. Site Terms of Use Modifications</h2>
-                    <p>Health & Wellness Guide may revise these terms of use for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms of Service.</p>
-                    
-                    <h2>8. Governing Law</h2>
-                    <p>Any claim relating to Health & Wellness Guide's website shall be governed by the laws of the United States without regard to its conflict of law provisions.</p>
-                    
-                    <a href="#home" class="back-to-home nav-link" data-page="home">← Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Disclaimer Page -->
-    <div id="disclaimer-page" class="page-content hidden">
-        <section class="legal-page">
-            <div class="legal-container">
-                <div class="legal-header">
-                    <h1>Medical Disclaimer</h1>
-                    <p>Important information about the content on this website</p>
-                </div>
-                <div class="legal-content">
-                    <h2>No Medical Advice</h2>
-                    <p>The information provided on Health & Wellness Guide is for educational and informational purposes only. The content is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
-                    <p>Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this website.</p>
-                    
-                    <h2>Consult Healthcare Professionals</h2>
-                    <p>The content provided on this website, including text, graphics, images, and other material, is for general informational purposes only. No material on this site is intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
-                    <p>Always seek the advice of your physician or other qualified health care provider with any questions you may have regarding a medical condition or treatment and before undertaking a new health care regimen. Never disregard professional medical advice or delay in seeking it because of something you have read on this website.</p>
-                    
-                    <h2>Individual Results May Vary</h2>
-                    <p>The health and wellness information provided on this website is based on personal experiences and research. Individual results may vary, and the information should not be considered as guarantees of specific outcomes.</p>
-                    <p>Any statements or claims about the possible health benefits conferred by any foods or supplements have not been evaluated by the Food & Drug Administration (FDA) and are not intended to diagnose, treat, cure or prevent any disease.</p>
-                    
-                    <h2>External Links</h2>
-                    <p>Health & Wellness Guide may contain links to external websites that are not provided or maintained by or in any way affiliated with us. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
-                    <p>The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
-                    
-                    <h2>Testimonials and Examples</h2>
-                    <p>Any testimonials or examples used are exceptional results, do not reflect the typical purchaser's experience, don't apply to the average person, and are not intended to represent or guarantee that anyone will achieve the same or similar results.</p>
-                    <p>Where specific examples or case studies are referenced, please note that your results may vary depending upon a variety of factors unique to you, your health status, and your compliance with the information provided.</p>
-                    
-                    <h2>Fitness and Exercise Disclaimer</h2>
-                    <p>The exercise and fitness information presented on this website is for educational purposes only. Physical exercise, in all of its forms and with or without the use of equipment such as blocks, straps or any other equipment that may be suggested by Health & Wellness Guide, is a strenuous physical activity.</p>
-                    <p>Accordingly, you are urged and advised to seek the advice of a physician before beginning any physical exercise regimen, routine, program, or using any suggested equipment, shown in any of the video clips on the website. Health & Wellness Guide is not a medical organization and its instructors or staff cannot give you medical advice or diagnosis.</p>
-                    
-                    <h2>Nutritional Information Disclaimer</h2>
-                    <p>The nutritional information provided on Health & Wellness Guide is for educational and informational purposes only. The information is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
-                    <p>Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition or dietary changes. Never disregard professional medical advice or delay in seeking it because of something you have read on this website.</p>
-                    
-                    <h2>Limitation of Liability</h2>
-                    <p>In no event shall Health & Wellness Guide, its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the services provided on this website.</p>
-                    
-                    <a href="#home" class="back-to-home nav-link" data-page="home">← Back to Home</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Article 1: Heart-Healthy Exercises -->
-    <div id="heart-health-article" class="page-content hidden">
-        <div class="article-hero" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-            <div class="container">
-                <h1>Heart-Healthy Exercises for All Ages</h1>
-                <div class="article-meta">
-                    <span>By Hugo</span>
-                    <span>Published: March 15, 2025</span>
-                    <span>Reading Time: 15 minutes</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="article-body">
-            <h2>The Importance of Cardiovascular Exercise</h2>
-            <p>Regular cardiovascular exercise is one of the most powerful tools we have for maintaining heart health throughout our lives. The heart is a muscle, and like any other muscle in the body, it becomes stronger and more efficient with regular exercise. When you engage in cardiovascular activities, you're essentially giving your heart a workout, which helps it pump blood more effectively throughout your body.</p>
-            
-            <p>Research consistently shows that people who engage in regular cardiovascular exercise have significantly lower risks of developing heart disease, high blood pressure, stroke, and type 2 diabetes. The American Heart Association recommends at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous aerobic activity per week for adults. This translates to just 30 minutes a day, five days a week - a small investment for such substantial health returns.</p>
-
-            <h2>Understanding Heart Rate Zones</h2>
-            <p>To maximize the benefits of your cardiovascular workouts, it's helpful to understand heart rate zones. These zones represent different intensity levels and provide specific benefits:</p>
-
-            <h3>Zone 1: Very Light (50-60% of Maximum Heart Rate)</h3>
-            <p>This zone is perfect for warm-ups, cool-downs, and recovery days. It improves basic endurance and fat metabolism while placing minimal stress on the body. Activities in this zone include leisurely walking, gentle cycling, or light stretching. The perceived exertion level is very light, and you should be able to carry on a full conversation without difficulty. This zone helps build your aerobic base and is particularly beneficial for beginners or those returning to exercise after a break.</p>
-
-            <h3>Zone 2: Light (60-70% of Maximum Heart Rate)</h3>
-            <p>This is where you'll spend most of your training time. It builds aerobic capacity and endurance while still allowing for conversation during exercise. Activities include brisk walking, light jogging, or steady cycling. This zone significantly improves your body's ability to use fat as fuel and enhances mitochondrial density in muscle cells. Regular training in this zone increases your aerobic threshold, meaning you can exercise at higher intensities before accumulating lactate.</p>
-
-            <h3>Zone 3: Moderate (70-80% of Maximum Heart Rate)</h3>
-            <p>This zone improves cardiovascular capacity and is ideal for improving your fitness level. You'll be breathing heavily but can still speak in short sentences. Activities include running, swimming laps, or cycling at a moderate pace. Training in this zone increases your lactate threshold and improves your body's ability to process and clear lactate from the bloodstream. This is often called the "tempo" or "threshold" zone and provides significant cardiovascular benefits.</p>
-
-            <h2>Age-Appropriate Cardiovascular Exercises</h2>
-
-            <h3>Exercises for Children and Teens (Ages 6-17)</h3>
-            <p>Children and teenagers should aim for at least 60 minutes of physical activity daily. The focus should be on fun, variety, and skill development. Research shows that active children have better cardiovascular health, stronger bones and muscles, healthier body weight, and reduced symptoms of anxiety and depression. They also tend to perform better academically and develop social skills through team activities.</p>
-
-            <ul>
-                <li><strong>Active Play:</strong> Tag, hide and seek, playground activities that develop coordination and social skills</li>
-                <li><strong>Sports:</strong> Soccer, basketball, swimming, dance that teach teamwork and discipline</li>
-                <li><strong>Family Activities:</strong> Hiking, biking, skating together that build family bonds while promoting health</li>
-                <li><strong>Skill Development:</strong> Martial arts, gymnastics, tennis lessons that improve coordination and confidence</li>
-            </ul>
-
-            <p>For this age group, the emphasis should be on establishing a positive relationship with physical activity that will carry into adulthood. Limit screen time to less than two hours per day and encourage outdoor play whenever possible. Research from the Journal of Pediatrics indicates that children who develop positive exercise habits before age 14 are three times more likely to maintain active lifestyles as adults.</p>
-
-            <h3>Exercises for Young Adults (Ages 18-35)</h3>
-            <p>This is the time to build a strong cardiovascular foundation that will support health throughout life. Young adults can handle higher intensity workouts and should focus on developing exercise habits that can be maintained during career and family-building years. Studies show that regular exercise during young adulthood reduces the risk of developing chronic diseases by up to 50% later in life.</p>
-
-            <ul>
-                <li><strong>Running/Jogging:</strong> 3-5 times per week for 30-45 minutes to build endurance and bone density</li>
-                <li><strong>High-Intensity Interval Training (HIIT):</strong> 1-2 times per week to maximize calorie burn and cardiovascular fitness</li>
-                <li><strong>Cycling:</strong> Both outdoor and stationary options that are joint-friendly and build leg strength</li>
-                <li><strong>Swimming:</strong> Excellent full-body, low-impact exercise that improves lung capacity</li>
-                <li><strong>Team Sports:</strong> Basketball, soccer, volleyball that provide social interaction and competition</li>
-            </ul>
-
-            <p>This age group should focus on consistency and variety to prevent boredom and overuse injuries. Incorporating strength training alongside cardiovascular exercise provides comprehensive fitness benefits. Research from the American Journal of Preventive Medicine shows that young adults who maintain consistent exercise routines have better mental health outcomes and career productivity.</p>
-
-            <h2>Creating a Balanced Cardiovascular Program</h2>
-            <p>A well-rounded cardiovascular program includes variety to prevent plateaus and maintain motivation. Here's a sample weekly schedule that incorporates different types of cardiovascular exercise:</p>
-
-            <h3>Monday: Moderate-Intensity Steady State</h3>
-            <p>30-45 minutes of brisk walking, cycling, or swimming at a consistent pace where you can still hold a conversation. This builds aerobic base and endurance while promoting fat adaptation. Include a 5-minute warm-up and cool-down with dynamic stretching.</p>
-
-            <h3>Tuesday: Strength Training</h3>
-            <p>While not strictly cardiovascular, strength training supports heart health by improving metabolism and body composition. Focus on compound movements like squats, push-ups, and rows. Strength training increases lean muscle mass, which raises resting metabolic rate and improves glucose metabolism.</p>
-
-            <h3>Wednesday: Interval Training</h3>
-            <p>20-30 minutes of alternating high-intensity bursts with recovery periods. For example: 1 minute fast walking/jogging followed by 2 minutes of moderate walking, repeated. Interval training improves VO2 max and increases calorie burn both during and after exercise through excess post-exercise oxygen consumption (EPOC).</p>
-
-            <h2>Monitoring Your Progress</h2>
-            <p>Tracking your cardiovascular fitness progress helps maintain motivation and ensures you're working at appropriate intensities:</p>
-
-            <ul>
-                <li><strong>Heart Rate Monitoring:</strong> Use a heart rate monitor or fitness tracker to ensure you're training in appropriate zones</li>
-                <li><strong>Perceived Exertion:</strong> Rate your effort on a scale of 1-10 to develop body awareness</li>
-                <li><strong>Talk Test:</strong> Can you speak comfortably during exercise? This simple test helps gauge intensity</li>
-                <li><strong>Distance and Time:</strong> Track improvements in how far or how long you can exercise</li>
-                <li><strong>Recovery Rate:</strong> How quickly your heart rate returns to normal after exercise indicates fitness level</li>
-            </ul>
-
-            <blockquote>
-                "The human body is the best picture of the human soul. Taking care of your heart through regular exercise is one of the most profound acts of self-care you can practice. Remember that every step, every pedal rotation, every lap in the pool is an investment in your future health and quality of life."
-            </blockquote>
-
-            <p>Cardiovascular exercise is a powerful medicine that benefits people of all ages. By finding activities you enjoy and incorporating them regularly into your life, you're investing in your long-term health and quality of life. Remember that any movement is better than none, and it's never too late to start reaping the heart-healthy benefits of regular exercise. The journey to better cardiovascular health begins with a single step - take that step today and make exercise a non-negotiable part of your life.</p>
-            
-            <a href="#home" class="back-to-blog nav-link" data-page="home">← Back to All Articles</a>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc8f5ecb?w=600" alt="美妝保養">
         </div>
     </div>
+</section>
 
-    <!-- Article 2: Natural Sleep Remedies -->
-    <div id="sleep-remedies-article" class="page-content hidden">
-        <div class="article-hero" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-            <div class="container">
-                <h1>Natural Remedies for Better Sleep</h1>
-                <div class="article-meta">
-                    <span>By Hugo</span>
-                    <span>Published: February 28, 2025</span>
-                    <span>Reading Time: 16 minutes</span>
-                </div>
+<!-- 評測專區 (Rakuten 聯盟商品) -->
+<section class="container section" id="reviews">
+    <h2 class="section-title">✨ 編輯精選 · 實測推薦</h2>
+    <div class="reviews-grid">
+        <!-- 商品 1 -->
+        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
+            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400');"></div>
+            <div class="review-content">
+                <h3>維C 亮白精華</h3>
+                <div class="rating">★★★★★ 4.8</div>
+                <p>14 天實測透亮感明顯，不黏膩好吸收。</p>
+                <span class="btn" style="margin-top: 12px;">👉 查看優惠</span>
             </div>
+        </a>
+        <!-- 商品 2 -->
+        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
+            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1617897903246-719242758020?w=400');"></div>
+            <div class="review-content">
+                <h3>A醇 抗老晚霜</h3>
+                <div class="rating">★★★★☆ 4.6</div>
+                <p>溫和有效，細紋淡化有感，回購率最高。</p>
+                <span class="btn">🛒 透過 Rakuten 購買</span>
+            </div>
+        </a>
+        <!-- 商品 3 -->
+        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
+            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400');"></div>
+            <div class="review-content">
+                <h3>水光保濕防曬乳</h3>
+                <div class="rating">★★★★★ 4.9</div>
+                <p>清爽不泛白，日常通勤必備。</p>
+                <span class="btn">🔆 最新優惠</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- 品牌排行榜 + 聯盟連結 -->
+<section class="container section" id="comparison">
+    <h2 class="section-title">🏆 熱門美妝品牌排行榜</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr><th>品牌</th><th>最佳品項</th><th>Rakuten 回饋</th><th>前往購買</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Estée Lauder</td><td>特潤超導修護露</td><td>10% 現金回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
+            <tr><td>La Mer</td><td>經典乳霜</td><td>12% 回饋 + 首購禮</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
+            <tr><td>SK-II</td><td>青春露</td><td>8% 回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
+            <tr><td>Lancôme</td><td>超未來肌因賦活露</td><td>11% 回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- 關於我們 + 免責聲明 -->
+<section class="container section" id="about">
+    <h2 class="section-title">📝 關於 GlowLab</h2>
+    <div style="background: var(--soft-gray); padding: 32px; border-radius: var(--radius);">
+        <p style="margin-bottom: 16px;">GlowLab 專注於專業美妝評測，所有產品皆經團隊實測至少 2 週，並以科學角度分析成分。我們與 Rakuten 合作，讀者透過站內連結購買，可獲最高現金回饋，同時支持我們持續產出深度內容。</p>
+        <p>📌 本站為 Rakuten 認證推廣夥伴，部分連結為聯盟網址，但評測內容維持 100% 獨立公正。</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div>🌸 GlowLab — 你的專業美妝顧問</div>
+            <div>📧 合作邀約：hello@glowlab.com</div>
         </div>
-        
-        <div class="article-body">
-            <h2>The Science of Sleep and Natural Solutions</h2>
-            <p>Sleep is not merely a passive state of rest but an active, complex physiological process essential for physical repair, memory consolidation, and emotional regulation. When sleep is disrupted, the consequences extend far beyond simple fatigue, affecting cognitive function, immune response, and overall health. While pharmaceutical sleep aids have their place in certain situations, natural remedies offer sustainable solutions without the risk of dependency or next-day grogginess.</p>
-            
-            <p>Understanding the natural sleep-wake cycle, or circadian rhythm, is fundamental to improving sleep quality. This internal biological clock responds primarily to light cues but is also influenced by meal timing, physical activity, and temperature. Natural sleep remedies work by supporting this innate rhythm rather than overriding it, creating conditions conducive to restorative sleep.</p>
-
-            <h2>Herbal Remedies for Sleep Support</h2>
-            <p>Herbal medicine offers some of the most well-researched natural approaches to improving sleep. These botanicals have been used for centuries across various cultures and now have scientific validation for their sleep-promoting properties:</p>
-
-            <h3>Valerian Root (Valeriana officinalis)</h3>
-            <p>Valerian is one of the most studied herbal sleep aids, with research suggesting it can reduce the time needed to fall asleep and improve sleep quality. It appears to work by increasing levels of gamma-aminobutyric acid (GABA), a neurotransmitter that helps regulate nerve impulses in your brain and nervous system. Multiple clinical trials have demonstrated valerian's effectiveness, particularly for people with mild to moderate insomnia.</p>
-
-            <p><strong>How to Use:</strong> Take 300-600 mg of valerian root extract 30-60 minutes before bedtime. It may take 2-4 weeks of consistent use to experience full benefits. Valerian has a distinctive odor that some find unpleasant, so capsule forms are often preferred over teas. For optimal results, combine valerian with other relaxing herbs like lemon balm or passionflower. Clinical studies in the American Journal of Medicine have shown that valerian can improve sleep quality by up to 30% in chronic insomnia sufferers.</p>
-
-            <h3>Chamomile (Matricaria recutita)</h3>
-            <p>Chamomile is one of the most gentle and widely used herbal remedies for relaxation and sleep. It contains apigenin, an antioxidant that binds to specific receptors in your brain that may promote sleepiness and reduce insomnia. Research published in BMC Complementary Medicine and Therapies found that chamomile extract significantly improved sleep quality in elderly participants. Unlike stronger sleep aids, chamomile doesn't cause morning grogginess or dependency.</p>
-
-            <p><strong>How to Use:</strong> Steep 2-3 teaspoons of dried chamomile flowers in hot water for 10-15 minutes. Drink 30-45 minutes before bedtime. Chamomile is generally considered safe for regular use, including for children and pregnant women (in moderation). For enhanced effects, combine with lavender or lemon balm. Studies show that consistent chamomile use over 4 weeks can reduce nighttime waking and improve overall sleep satisfaction.</p>
-
-            <h2>Nutritional Approaches to Better Sleep</h2>
-            <p>What you eat—and when you eat—can significantly impact sleep quality. Certain nutrients play direct roles in sleep regulation, while others influence sleep indirectly through their effects on hormones and neurotransmitters:</p>
-
-            <h3>Magnesium-Rich Foods</h3>
-            <p>Magnesium plays a crucial role in sleep regulation by maintaining healthy GABA levels. Many people are deficient in this essential mineral. Food sources include:</p>
-
-            <ul>
-                <li>Dark leafy greens (spinach, kale) - rich in magnesium and calcium</li>
-                <li>Nuts and seeds (almonds, pumpkin seeds) - also provide tryptophan</li>
-                <li>Legumes (black beans, lentils) - good sources of magnesium and B vitamins</li>
-                <li>Whole grains (brown rice, quinoa) - provide complex carbs that aid sleep</li>
-                <li>Dark chocolate (70% cocoa or higher) - contains magnesium and theobromine</li>
-            </ul>
-
-            <p>Consider a magnesium supplement (200-400 mg of magnesium glycinate or citrate) about 30-60 minutes before bed if dietary sources are insufficient. Research in the Journal of Research in Medical Sciences found that magnesium supplementation significantly improved insomnia symptoms in elderly participants. Magnesium glycinate is particularly well-absorbed and doesn't cause digestive upset.</p>
-
-            <h3>Tryptophan-Containing Foods</h3>
-            <p>Tryptophan is an amino acid that serves as a precursor to serotonin and melatonin, key regulators of sleep. Include these foods in your evening meal:</p>
-
-            <ul>
-                <li>Turkey and chicken - excellent sources of tryptophan</li>
-                <li>Dairy products (milk, yogurt, cheese) - also contain calcium which aids melatonin production</li>
-                <li>Nuts and seeds - particularly walnuts and flaxseeds</li>
-                <li>Eggs - especially the whites which are rich in tryptophan</li>
-                <li>Soy products (tofu, tempeh) - good plant-based sources</li>
-            </ul>
-
-            <p>Combining tryptophan-rich foods with complex carbohydrates can enhance its availability to the brain. Research from the American Journal of Clinical Nutrition shows that carbohydrate-rich meals can increase tryptophan availability in the brain by up to 20%. A small carbohydrate snack before bed can facilitate sleep onset.</p>
-
-            <h2>Lifestyle and Environmental Adjustments</h2>
-            <p>Creating an environment and routine conducive to sleep is often more powerful than any supplement. These non-pharmacological approaches address the root causes of sleep difficulties:</p>
-
-            <h3>Sleep Environment Optimization</h3>
-            <p>Your bedroom should be a sanctuary for sleep. Consider these elements:</p>
-
-            <ul>
-                <li><strong>Temperature:</strong> Keep your bedroom between 60-67°F (15-19°C). Cool temperatures signal your body that it's time for sleep</li>
-                <li><strong>Light:</strong> Use blackout curtains and eliminate electronic light sources. Even small amounts of light can suppress melatonin</li>
-                <li><strong>Noise:</strong> Use white noise machines or earplugs if needed. Consistent background noise can mask disruptive sounds</li>
-                <li><strong>Comfort:</strong> Invest in a quality mattress and pillows that support your sleeping position. Replace mattresses every 7-10 years</li>
-                <li><strong>Aromatherapy:</strong> Use calming scents like lavender, chamomile, or sandalwood. These can trigger relaxation responses</li>
-            </ul>
-
-            <h3>Digital Sunset</h3>
-            <p>The blue light emitted by screens suppresses melatonin production, making it harder to fall asleep. Implement a "digital sunset" at least 60-90 minutes before bedtime:</p>
-
-            <ul>
-                <li>Turn off televisions, computers, tablets, and smartphones. The blue light spectrum is particularly disruptive to circadian rhythms</li>
-                <li>Use blue light filtering apps or glasses if screen use is unavoidable. These can reduce blue light exposure by up to 70%</li>
-                <li>Charge devices outside the bedroom to remove temptation. The mere presence of devices can increase anxiety</li>
-                <li>Replace screen time with reading, gentle stretching, or meditation. These activities promote relaxation rather than stimulation</li>
-            </ul>
-
-            <h3>Consistent Sleep Schedule</h3>
-            <p>Going to bed and waking up at the same time every day—even on weekends—strengthens your circadian rhythm. This consistency helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally. Research from Harvard Medical School shows that maintaining consistent sleep times can improve sleep quality by 40% in people with irregular schedules. Your body thrives on predictability, and a regular schedule helps optimize all your biological rhythms.</p>
-
-            <h2>Mind-Body Practices for Sleep Improvement</h2>
-            <p>Mental and emotional states significantly impact sleep quality. These practices help calm the nervous system and prepare the mind for rest:</p>
-
-            <h3>Progressive Muscle Relaxation</h3>
-            <p>This technique involves systematically tensing and then relaxing different muscle groups in the body. It helps release physical tension and can distract from racing thoughts. Research in the Journal of Behavioral Therapy and Experimental Psychiatry found that progressive muscle relaxation can reduce the time needed to fall asleep by 50% in people with insomnia.</p>
-
-            <ol>
-                <li>Start with your feet and work your way up to your face. This systematic approach ensures complete relaxation</li>
-                <li>Tense each muscle group for 5 seconds, then release. Focus on the contrast between tension and relaxation</li>
-                <li>Notice the difference between tension and relaxation. This mindfulness component enhances the technique's effectiveness</li>
-                <li>Practice for 10-15 minutes before bed. Consistency is key to developing this skill</li>
-            </ol>
-
-            <h3>4-7-8 Breathing Technique</h3>
-            <p>This breathing pattern activates the parasympathetic nervous system, promoting relaxation. Developed by Dr. Andrew Weil, this technique is based on pranayama yoga practices and can reduce anxiety and help with sleep onset.</p>
-
-            <ol>
-                <li>Exhale completely through your mouth, making a whoosh sound. This empties your lungs completely</li>
-                <li>Close your mouth and inhale quietly through your nose for 4 counts. Fill your lungs from the bottom upward</li>
-                <li>Hold your breath for 7 counts. This allows oxygen to fully saturate your bloodstream</li>
-                <li>Exhale completely through your mouth for 8 counts. The extended exhale activates the relaxation response</li>
-                <li>Repeat this cycle 3-4 times. With practice, you can increase to 8 cycles</li>
-            </ol>
-
-            <blockquote>
-                "Sleep is the best meditation. A good night's sleep is fundamental to health, and natural approaches offer sustainable solutions that work with your body's innate wisdom. The journey to better sleep begins with understanding your own rhythms and creating an environment that supports natural sleep processes."
-            </blockquote>
-
-            <p>Improving sleep naturally requires patience and consistency. Different approaches work for different people, so it may take some experimentation to find what works best for you. The key is creating a comprehensive approach that addresses both the physical and psychological aspects of sleep. By implementing these natural strategies, you can develop sustainable sleep habits that support overall health and wellbeing. Remember that sleep is not a luxury but a biological necessity, and investing in quality sleep is one of the most important things you can do for your health.</p>
-            
-            <a href="#home" class="back-to-blog nav-link" data-page="home">← Back to All Articles</a>
+        <div class="affiliate-disclosure">
+            * 部分連結為 Rakuten 聯盟行銷連結，您透過此連結購買，我們可能會獲得少許佣金，但價格不受影響。
+        </div>
+        <div class="affiliate-disclosure" style="margin-top: 8px;">
+            © 2025 GlowLab All Rights Reserved.
         </div>
     </div>
+</footer>
 
-    <!-- Article 3: HIIT Workouts -->
-    <div id="hiit-workouts-article" class="page-content hidden">
-        <div class="article-hero" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-            <div class="container">
-                <h1>High-Intensity Interval Training: Maximizing Fitness in Minimal Time</h1>
-                <div class="article-meta">
-                    <span>By Hugo</span>
-                    <span>Published: April 10, 2025</span>
-                    <span>Reading Time: 18 minutes</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="article-body">
-            <h2>The Science Behind HIIT</h2>
-            <p>High-Intensity Interval Training (HIIT) has revolutionized the fitness industry by challenging traditional workout paradigms. This training method alternates between short bursts of maximum-effort exercise and brief recovery periods, creating a powerful metabolic stimulus that continues to burn calories long after the workout is complete. The fundamental principle behind HIIT is pushing your body to its anaerobic threshold—the point where your body cannot supply enough oxygen to meet energy demands—then allowing just enough recovery to repeat the process.</p>
-            
-            <p>Research from the American College of Sports Medicine demonstrates that HIIT can produce similar fitness improvements to traditional endurance training in significantly less time. A landmark study published in the Journal of Physiology found that just three sessions of HIIT per week, comprising less than 30 minutes total exercise time (including warm-up and cool-down), improved insulin sensitivity and cardiovascular fitness as effectively as five hours of continuous moderate exercise. This efficiency makes HIIT particularly valuable in our time-constrained modern lives.</p>
-
-            <h2>The EPOC Phenomenon: Afterburn Effect</h2>
-            <p>One of HIIT's most significant advantages is Excess Post-Exercise Oxygen Consumption (EPOC), commonly known as the "afterburn effect." After intense exercise, your body works to restore itself to its pre-exercise state, requiring additional oxygen to replenish energy stores, repair muscle tissue, and clear metabolic byproducts. This recovery process elevates your metabolism for hours—sometimes up to 48 hours—after your workout ends.</p>
-
-            <h3>Understanding EPOC Mechanisms</h3>
-            <p>The afterburn effect occurs through several physiological processes:</p>
-
-            <ul>
-                <li><strong>ATP Restoration:</strong> Replenishing adenosine triphosphate, the body's primary energy currency</li>
-                <li><strong>Lactate Clearance:</strong> Removing lactic acid accumulated during high-intensity efforts</li>
-                <li><strong>Glycogen Resynthesis:</strong> Restoring muscle glycogen stores depleted during exercise</li>
-                <li><strong>Hormone Regulation:</strong> Rebalancing epinephrine, norepinephrine, and other stress hormones</li>
-                <li><strong>Protein Synthesis:</strong> Repairing microscopic muscle damage caused by intense exertion</li>
-                <li><strong>Core Temperature Regulation:</strong> Returning body temperature to normal levels</li>
-            </ul>
-
-            <p>Research from the University of Wisconsin-La Crosse demonstrates that HIIT can elevate metabolism by 13-20% for up to 16 hours post-exercise, compared to 5-10% for moderate continuous exercise. This translates to burning an additional 100-200 calories throughout the day without any additional activity.</p>
-
-            <h2>HIIT Protocols and Methodologies</h2>
-            <p>Several well-researched HIIT protocols have emerged, each with specific benefits and applications:</p>
-
-            <h3>The Tabata Protocol</h3>
-            <p>Developed by Japanese scientist Dr. Izumi Tabata, this protocol involves 20 seconds of ultra-intense exercise followed by 10 seconds of rest, repeated for 8 cycles (4 minutes total). The original study using elite athletes demonstrated that this protocol improved both aerobic and anaerobic capacity more effectively than moderate-intensity continuous training. Tabata's research showed a 28% increase in anaerobic capacity and a 14% increase in VO2 max in just six weeks.</p>
-
-            <p><strong>Sample Tabata Workout:</strong></p>
-            <ul>
-                <li>5-minute warm-up (light cardio and dynamic stretching)</li>
-                <li>20 seconds of maximum effort squat jumps</li>
-                <li>10 seconds of complete rest</li>
-                <li>Repeat 8 times with the same exercise</li>
-                <li>5-minute cool-down with static stretching</li>
-            </ul>
-
-            <h3>The Little Method</h3>
-            <p>Developed by Dr. Martin Gibala at McMaster University, this protocol uses 60 seconds of high-intensity exercise at 95% of maximum heart rate followed by 75 seconds of recovery, repeated for 8-12 cycles. Research published in the Journal of Physiology found that this protocol, performed three times weekly, improved insulin sensitivity and muscle oxidative capacity comparable to traditional endurance training requiring five times the volume.</p>
-
-            <h3>The Wingate Protocol</h3>
-            <p>This classic protocol involves 30 seconds of all-out effort against high resistance followed by 4-5 minutes of recovery, repeated 4-6 times. Originally developed using cycle ergometers, it has been adapted for various exercises. Studies show significant improvements in anaerobic power and cardiovascular health with just two sessions weekly.</p>
-
-            <h2>HIIT for Different Fitness Levels</h2>
-
-            <h3>Beginner HIIT Program (4-6 weeks)</h3>
-            <p>For those new to HIIT or returning to exercise after a break, a gradual approach prevents injury and builds foundation:</p>
-
-            <ul>
-                <li><strong>Work-to-Rest Ratio:</strong> 1:4 (e.g., 20 seconds work, 80 seconds rest)</li>
-                <li><strong>Intensity Level:</strong> 7-8/10 perceived exertion</li>
-                <li><strong>Session Duration:</strong> 15-20 minutes including warm-up/cool-down</li>
-                <li><strong>Frequency:</strong> 2 times per week with 2-3 days between sessions</li>
-                <li><strong>Exercise Selection:</strong> Bodyweight exercises, stationary cycling, brisk walking intervals</li>
-            </ul>
-
-            <p>Beginner Sample Workout:</p>
-            <ol>
-                <li>5-minute warm-up (walking in place, arm circles, leg swings)</li>
-                <li>20 seconds of marching with high knees</li>
-                <li>80 seconds of slow walking recovery</li>
-                <li>20 seconds of modified push-ups (on knees if needed)</li>
-                <li>80 seconds of rest</li>
-                <li>Repeat sequence 4-6 times</li>
-                <li>5-minute cool-down with stretching</li>
-            </ol>
-
-            <h3>Intermediate HIIT Program (6-12 weeks)</h3>
-            <p>For those with basic fitness foundation seeking greater challenges:</p>
-
-            <ul>
-                <li><strong>Work-to-Rest Ratio:</strong> 1:2 (e.g., 30 seconds work, 60 seconds rest)</li>
-                <li><strong>Intensity Level:</strong> 8-9/10 perceived exertion</li>
-                <li><strong>Session Duration:</strong> 20-30 minutes including warm-up/cool-down</li>
-                <li><strong>Frequency:</strong> 3 times per week with at least one rest day between sessions</li>
-                <li><strong>Exercise Selection:</strong> Combination of bodyweight and light equipment exercises</li>
-            </ul>
-
-            <h3>Advanced HIIT Program (12+ weeks)</h3>
-            <p>For experienced athletes seeking maximum performance improvements:</p>
-
-            <ul>
-                <li><strong>Work-to-Rest Ratio:</strong> 1:1 or 2:1 (e.g., 40 seconds work, 20 seconds rest)</li>
-                <li><strong>Intensity Level:</strong> 9-10/10 perceived exertion</li>
-                <li><strong>Session Duration:</strong> 30-45 minutes including warm-up/cool-down</li>
-                <li><strong>Frequency:</strong> 3-4 times per week with careful attention to recovery</li>
-                <li><strong>Exercise Selection:</strong> Complex movements, plyometrics, heavy resistance exercises</li>
-            </ul>
-
-            <h2>Exercise Selection and Programming</h2>
-            <p>Effective HIIT programming involves strategic exercise selection to maximize benefits while minimizing injury risk:</p>
-
-            <h3>Cardiovascular Exercises</h3>
-            <ul>
-                <li><strong>Sprinting:</strong> Outdoor running or treadmill sprints</li>
-                <li><strong>Cycling:</strong> Stationary bike or outdoor cycling intervals</li>
-                <li><strong>Rowing:</strong> Full-body cardiovascular challenge</li>
-                <li><strong>Jump Rope:</strong> High-intensity skipping intervals</li>
-                <li><strong>Stair Climbing:</strong> Stadium stairs or stair machine</li>
-            </ul>
-
-            <h3>Bodyweight Strength Exercises</h3>
-            <ul>
-                <li><strong>Burpees:</strong> Full-body metabolic conditioning</li>
-                <li><strong>Mountain Climbers:</strong> Core stability and cardiovascular challenge</li>
-                <li><strong>Squat Jumps:</strong> Lower body power development</li>
-                <li><strong>Push-up Variations:</strong> Upper body strength and stability</li>
-                <li><strong>Plank to Push-up:</strong> Core and upper body combination</li>
-            </ul>
-
-            <h2>Nutritional Support for HIIT</h2>
-            <p>Proper nutrition enhances HIIT performance and recovery:</p>
-
-            <h3>Pre-Workout Nutrition (1-2 hours before)</h3>
-            <ul>
-                <li><strong>Carbohydrates:</strong> 30-60 grams for energy (oatmeal, banana, whole grain toast)</li>
-                <li><strong>Protein:</strong> 10-20 grams for muscle support (Greek yogurt, protein shake)</li>
-                <li><strong>Hydration:</strong> 16-20 ounces of water</li>
-                <li><strong>Avoid:</strong> High-fat foods, excessive fiber, large meals</li>
-            </ul>
-
-            <h3>Post-Workout Recovery (within 45 minutes)</h3>
-            <ul>
-                <li><strong>Protein:</strong> 20-30 grams for muscle repair (whey protein, chicken, eggs)</li>
-                <li><strong>Carbohydrates:</strong> 40-80 grams to replenish glycogen (sweet potato, rice, fruit)</li>
-                <li><strong>Hydration:</strong> Water plus electrolytes if session exceeded 60 minutes</li>
-                <li><strong>Antioxidants:</strong> Berries, tart cherry juice to reduce inflammation</li>
-            </ul>
-
-            <h2>Common HIIT Mistakes and How to Avoid Them</h2>
-
-            <h3>Mistake 1: Sacrificing Form for Speed</h3>
-            <p>Poor technique during high-intensity intervals significantly increases injury risk. Focus on maintaining proper form throughout each repetition, even if it means slightly reducing speed or range of motion.</p>
-
-            <h3>Mistake 2: Insufficient Warm-up</h3>
-            <p>HIIT places extreme demands on the musculoskeletal system. A proper warm-up should include 5-10 minutes of light cardiovascular activity followed by dynamic stretching targeting the muscles you'll be using.</p>
-
-            <h3>Mistake 3: Overtraining</h3>
-            <p>More is not always better with HIIT. The intense nature of these workouts requires adequate recovery. Limit HIIT sessions to 3-4 times weekly and include active recovery days with walking, yoga, or light swimming.</p>
-
-            <h3>Mistake 4: Neglecting Recovery Nutrition</h3>
-            <p>The metabolic benefits of HIIT depend partly on proper post-workout nutrition. Consume a combination of protein and carbohydrates within 45 minutes of completing your session.</p>
-
-            <h2>Special Populations and Considerations</h2>
-
-            <h3>HIIT for Weight Loss</h3>
-            <p>Research in the British Journal of Sports Medicine shows HIIT can be particularly effective for fat loss, especially reducing abdominal and visceral fat. The combination of high calorie burn during exercise and elevated metabolism afterward creates an optimal environment for fat loss.</p>
-
-            <h3>HIIT for Older Adults</h3>
-            <p>Modified HIIT can benefit older populations by improving cardiovascular health, maintaining muscle mass, and enhancing functional capacity. Reduce impact and intensity while maintaining the interval structure.</p>
-
-            <h3>HIIT with Health Conditions</h3>
-            <p>Individuals with cardiovascular conditions, diabetes, or orthopedic issues should consult healthcare providers before beginning HIIT. Modified protocols with appropriate monitoring can often provide significant benefits.</p>
-
-            <h2>Measuring Progress and Adjusting Programs</h2>
-            <p>Track your HIIT progress through multiple metrics:</p>
-
-            <ul>
-                <li><strong>Performance Metrics:</strong> Increased repetitions, faster completion times, higher power output</li>
-                <li><strong>Physiological Markers:</strong> Lower resting heart rate, faster heart rate recovery</li>
-                <li><strong>Perceived Exertion:</strong> Same workout feels easier over time</li>
-                <li><strong>Body Composition:</strong> Measurements, photos, or body fat percentage</li>
-            </ul>
-
-            <p>Progress by gradually increasing intensity before volume. Once you can complete your current workout with proper form while maintaining target intensity, consider increasing difficulty by reducing rest periods, adding rounds, or incorporating more challenging exercises.</p>
-
-            <blockquote>
-                "The greatest benefit of HIIT isn't the time you save during the workout—it's the metabolic revolution that continues long after you've finished. By strategically pushing your limits in brief, intense bursts, you're teaching your body to become more efficient at energy production, fat burning, and recovery. Remember that consistency with intensity yields far greater results than sporadic extreme efforts."
-            </blockquote>
-
-            <p>High-Intensity Interval Training represents a paradigm shift in exercise efficiency, offering substantial health benefits in timeframes that fit modern lifestyles. By understanding the science, implementing proper progressions, and respecting recovery needs, you can harness HIIT's power to transform your fitness in as little as 20-30 minutes per session. The key to success lies not in endless hours at the gym, but in the quality and intensity of the time you invest.</p>
-            
-            <a href="#home" class="back-to-blog nav-link" data-page="home">← Back to All Articles</a>
-        </div>
-    </div>
-
-    <!-- Additional Articles -->
-    <!-- Article 4: Mindfulness Meditation -->
-    <div id="mindfulness-meditation-article" class="page-content hidden">
-        <div class="article-hero" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-            <div class="container">
-                <h1>Mindfulness Meditation for Stress Reduction</h1>
-                <div class="article-meta">
-                    <span>By Hugo</span>
-                    <span>Published: May 5, 2025</span>
-                    <span>Reading Time: 14 minutes</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="article-body">
-            <h2>The Science of Mindfulness</h2>
-            <p>Mindfulness meditation has emerged as one of the most researched and validated approaches to stress reduction in modern psychology. At its core, mindfulness involves paying attention to the present moment with openness, curiosity, and acceptance. This simple yet profound practice has been shown to reduce stress, improve emotional regulation, and enhance overall wellbeing.</p>
-            
-            <p>Research from Harvard Medical School demonstrates that regular mindfulness practice can physically change brain structure, increasing gray matter density in regions associated with learning, memory, and emotional regulation while decreasing activity in the amygdala, the brain's fear center. These neurological changes translate to tangible benefits in daily life, including reduced reactivity to stressors and improved ability to handle challenging situations.</p>
-
-            <h2>Getting Started with Mindfulness Meditation</h2>
-            <p>Beginning a mindfulness practice doesn't require special equipment or extensive training. Here's a simple approach to get started:</p>
-
-            <h3>Basic Breathing Meditation</h3>
-            <p>This foundational practice helps develop awareness of the present moment through focus on the breath:</p>
-
-            <ol>
-                <li>Find a comfortable seated position, either on a cushion or chair with your back straight but not rigid</li>
-                <li>Close your eyes or lower your gaze, and bring attention to your breath</li>
-                <li>Notice the sensation of air entering and leaving your body</li>
-                <li>When your mind wanders (which it will), gently return attention to the breath without judgment</li>
-                <li>Start with 5-10 minutes daily, gradually increasing as comfort with the practice grows</li>
-            </ol>
-
-            <p>The key is consistency rather than duration. Research shows that even brief daily practice can produce significant benefits over time. A study published in Psychosomatic Medicine found that just 25 minutes of mindfulness meditation for three consecutive days can reduce stress and improve resilience.</p>
-
-            <h2>Advanced Mindfulness Techniques</h2>
-            <p>As your practice develops, you can explore these more advanced techniques to deepen your mindfulness:</p>
-
-            <h3>Body Scan Meditation</h3>
-            <p>This practice involves systematically bringing attention to different parts of the body, noticing sensations without judgment. Research shows body scan meditation can significantly reduce physiological markers of stress and improve sleep quality.</p>
-
-            <h3>Loving-Kindness Meditation</h3>
-            <p>This practice involves directing well-wishes toward yourself and others. Studies demonstrate that loving-kindness meditation can increase positive emotions, improve social connection, and reduce symptoms of depression and PTSD.</p>
-
-            <h3>Mindful Movement</h3>
-            <p>Incorporating mindfulness into gentle movement practices like yoga or tai chi can enhance mind-body connection and make meditation more accessible for those who find seated practice challenging.</p>
-
-            <h2>Integrating Mindfulness into Daily Life</h2>
-            <p>The true power of mindfulness emerges when we bring it off the meditation cushion and into daily activities. Here are practical ways to integrate mindfulness throughout your day:</p>
-
-            <ul>
-                <li><strong>Mindful Eating:</strong> Pay attention to the taste, texture, and experience of eating without distractions</li>
-                <li><strong>Mindful Walking:</strong> Notice the sensations of movement and connection with the ground during walks</li>
-                <li><strong>Mindful Communication:</strong> Listen fully without planning your response while others are speaking</li>
-                <li><strong>Mindful Breaks:</strong> Take 1-2 minute mindfulness breaks throughout the day to reset and recenter</li>
-            </ul>
-
-            <p>Research from the University of California, Berkeley shows that these informal mindfulness practices can be as beneficial as formal meditation for reducing stress and improving wellbeing.</p>
-
-            <blockquote>
-                "Mindfulness isn't about emptying the mind or achieving a state of eternal calm. It's about learning to meet whatever arises in our experience with presence and compassion. The practice is in the returning, again and again, to this present moment with kindness toward ourselves and our wandering minds."
-            </blockquote>
-
-            <p>Mindfulness meditation offers a practical, evidence-based approach to navigating the stresses of modern life. By developing the capacity to observe our experiences without immediately reacting to them, we create space for more thoughtful responses and reduce the toll that chronic stress takes on our mental and physical health. The journey of mindfulness is one of gentle, consistent practice—each moment of awareness, no matter how brief, contributes to a more resilient and balanced way of being.</p>
-            
-            <a href="#home" class="back-to-blog nav-link" data-page="home">← Back to All Articles</a>
-        </div>
-    </div>
-
-    <!-- Calculator Modals -->
-    <!-- BMI Calculator Modal -->
-    <div id="bmi-calculator" class="calculator-modal">
-        <div class="calculator-modal-content">
-            <span class="close-calculator">&times;</span>
-            <h2>BMI Calculator</h2>
-            <p>Body Mass Index (BMI) is a measure of body fat based on height and weight.</p>
-            
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="bmi-height">Height (cm)</label>
-                    <input type="number" id="bmi-height" placeholder="Enter your height in cm" min="100" max="250">
-                </div>
-                
-                <div class="form-group">
-                    <label for="bmi-weight">Weight (kg)</label>
-                    <input type="number" id="bmi-weight" placeholder="Enter your weight in kg" min="30" max="200">
-                </div>
-                
-                <button class="btn" id="calculate-bmi">Calculate BMI</button>
-            </div>
-            
-            <div class="calculator-result" id="bmi-result">
-                <h3>Your Results</h3>
-                <div class="result-value" id="bmi-value"></div>
-                <div class="result-interpretation" id="bmi-interpretation"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calorie Calculator Modal -->
-    <div id="calories-calculator" class="calculator-modal">
-        <div class="calculator-modal-content">
-            <span class="close-calculator">&times;</span>
-            <h2>Daily Calorie Needs Calculator</h2>
-            <p>Calculate your daily calorie requirements based on your activity level and goals.</p>
-            
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="cal-age">Age</label>
-                    <input type="number" id="cal-age" placeholder="Enter your age" min="15" max="100">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cal-gender">Gender</label>
-                    <select id="cal-gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cal-height">Height (cm)</label>
-                    <input type="number" id="cal-height" placeholder="Enter your height in cm" min="100" max="250">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cal-weight">Weight (kg)</label>
-                    <input type="number" id="cal-weight" placeholder="Enter your weight in kg" min="30" max="200">
-                </div>
-                
-                <div class="form-group">
-                    <label for="cal-activity">Activity Level</label>
-                    <select id="cal-activity">
-                        <option value="1.2">Sedentary (little or no exercise)</option>
-                        <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
-                        <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
-                        <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
-                        <option value="1.9">Extremely active (very hard exercise, physical job)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cal-goal">Goal</label>
-                    <select id="cal-goal">
-                        <option value="maintain">Maintain weight</option>
-                        <option value="lose">Lose weight</option>
-                        <option value="gain">Gain weight</option>
-                    </select>
-                </div>
-                
-                <button class="btn" id="calculate-calories">Calculate Calories</button>
-            </div>
-            
-            <div class="calculator-result" id="calories-result">
-                <h3>Your Daily Calorie Needs</h3>
-                <div class="result-value" id="calories-value"></div>
-                <div class="result-interpretation" id="calories-interpretation"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Heart Rate Calculator Modal -->
-    <div id="heart-rate-calculator" class="calculator-modal">
-        <div class="calculator-modal-content">
-            <span class="close-calculator">&times;</span>
-            <h2>Heart Rate Zones Calculator</h2>
-            <p>Calculate your optimal heart rate zones for different types of exercise.</p>
-            
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="hr-age">Age</label>
-                    <input type="number" id="hr-age" placeholder="Enter your age" min="15" max="100">
-                </div>
-                
-                <div class="form-group">
-                    <label for="hr-resting">Resting Heart Rate (optional)</label>
-                    <input type="number" id="hr-resting" placeholder="Enter your resting HR (bpm)" min="40" max="100">
-                </div>
-                
-                <button class="btn" id="calculate-heart-rate">Calculate Zones</button>
-            </div>
-            
-            <div class="calculator-result" id="heart-rate-result">
-                <h3>Your Heart Rate Zones</h3>
-                <div id="heart-rate-zones"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Water Intake Calculator Modal -->
-    <div id="water-calculator" class="calculator-modal">
-        <div class="calculator-modal-content">
-            <span class="close-calculator">&times;</span>
-            <h2>Water Intake Calculator</h2>
-            <p>Calculate your recommended daily water intake for optimal hydration.</p>
-            
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="water-weight">Weight (kg)</label>
-                    <input type="number" id="water-weight" placeholder="Enter your weight in kg" min="30" max="200">
-                </div>
-                
-                <div class="form-group">
-                    <label for="water-activity">Activity Level</label>
-                    <select id="water-activity">
-                        <option value="low">Low (sedentary lifestyle)</option>
-                        <option value="moderate">Moderate (light exercise 3-5 days/week)</option>
-                        <option value="high">High (intense exercise 6-7 days/week)</option>
-                        <option value="very-high">Very High (athlete in training)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="water-climate">Climate</label>
-                    <select id="water-climate">
-                        <option value="temperate">Temperate</option>
-                        <option value="hot">Hot/Humid</option>
-                        <option value="dry">Dry/Arid</option>
-                    </select>
-                </div>
-                
-                <button class="btn" id="calculate-water">Calculate Water Needs</button>
-            </div>
-            
-            <div class="calculator-result" id="water-result">
-                <h3>Your Daily Water Needs</h3>
-                <div class="result-value" id="water-value"></div>
-                <div class="result-interpretation" id="water-interpretation"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sleep Assessment Calculator Modal -->
-    <div id="sleep-calculator" class="calculator-modal">
-        <div class="calculator-modal-content">
-            <span class="close-calculator">&times;</span>
-            <h2>Sleep Quality Assessment</h2>
-            <p>Evaluate your sleep quality and get personalized recommendations.</p>
-            
-            <div class="calculator-form">
-                <div class="form-group">
-                    <label for="sleep-hours">Average Sleep Duration (hours per night)</label>
-                    <input type="number" id="sleep-hours" placeholder="e.g., 7.5" min="4" max="12" step="0.5">
-                </div>
-                
-                <div class="form-group">
-                    <label for="sleep-quality">Sleep Quality (1-10 scale)</label>
-                    <input type="number" id="sleep-quality" placeholder="Rate your sleep quality 1-10" min="1" max="10">
-                </div>
-                
-                <div class="form-group">
-                    <label for="sleep-wakeups">Nightly Wake-ups</label>
-                    <select id="sleep-wakeups">
-                        <option value="0">0 (Sleep through the night)</option>
-                        <option value="1">1-2 times</option>
-                        <option value="3">3+ times</option>
-                        <option value="many">Many times, hard to get back to sleep</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="sleep-morning">Morning Energy Level</label>
-                    <select id="sleep-morning">
-                        <option value="refreshed">Refreshed and energized</option>
-                        <option value="somewhat">Somewhat rested</option>
-                        <option value="tired">Tired and groggy</option>
-                        <option value="exhausted">Exhausted</option>
-                    </select>
-                </div>
-                
-                <button class="btn" id="calculate-sleep">Assess Sleep Quality</button>
-            </div>
-            
-            <div class="calculator-result" id="sleep-result">
-                <h3>Your Sleep Assessment</h3>
-                <div class="result-value" id="sleep-score"></div>
-                <div class="result-interpretation" id="sleep-interpretation"></div>
-                <div id="sleep-recommendations"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Health & Wellness Guide</h3>
-                    <p>Your trusted source for science-based health information and practical wellness advice.</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
-                        <li><a href="#about" class="nav-link" data-page="about">About</a></li>
-                        <li><a href="#calculators" class="nav-link" data-page="calculators">Calculators</a></li>
-                        <li><a href="#privacy" class="nav-link" data-page="privacy">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Health Topics</h3>
-                    <ul>
-                        <li><a href="#" class="category-link" data-category="nutrition">Nutrition</a></li>
-                        <li><a href="#" class="category-link" data-category="fitness">Fitness</a></li>
-                        <li><a href="#" class="category-link" data-category="mental-health">Mental Health</a></li>
-                        <li><a href="#" class="category-link" data-category="sleep">Sleep</a></li>
-                        <li><a href="#" class="category-link" data-category="preventive-care">Preventive Care</a></li>
-                        <li><a href="#" class="category-link" data-category="healthy-aging">Healthy Aging</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#privacy" class="nav-link" data-page="privacy">Privacy Policy</a></li>
-                        <li><a href="#terms" class="nav-link" data-page="terms">Terms of Service</a></li>
-                        <li><a href="#disclaimer" class="nav-link" data-page="disclaimer">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025-2026 Health & Wellness Guide. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Complete Navigation System
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenu = document.querySelector('.mobile-menu');
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', function() {
-                    const navUl = document.querySelector('nav ul');
-                    navUl.classList.toggle('show');
-                });
-            }
-            
-            // Page Navigation System
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pageContents = document.querySelectorAll('.page-content');
-            
-            // Function to show a specific page
-            function showPage(pageId) {
-                // Hide all pages
-                pageContents.forEach(page => {
-                    page.classList.add('hidden');
-                });
-                
-                // Show the requested page
-                const targetPage = document.getElementById(pageId);
-                if (targetPage) {
-                    targetPage.classList.remove('hidden');
-                } else {
-                    // Fallback to home page
-                    document.getElementById('home-content').classList.remove('hidden');
-                }
-                
-                // Update active nav link
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-page') === pageId.replace('-page', '').replace('-content', '').replace('-article', '')) {
-                        link.classList.add('active');
-                    }
-                });
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
-                
-                // Close mobile menu if open
-                const navUl = document.querySelector('nav ul');
-                if (navUl.classList.contains('show')) {
-                    navUl.classList.remove('show');
-                }
-            }
-            
-            // Navigation link click handlers
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageName = this.getAttribute('data-page');
-                    let pageId;
-                    
-                    switch(pageName) {
-                        case 'home':
-                            pageId = 'home-content';
-                            break;
-                        case 'about':
-                            pageId = 'about-page';
-                            break;
-                        case 'calculators':
-                            pageId = 'calculators-page';
-                            break;
-                        case 'privacy':
-                            pageId = 'privacy-page';
-                            break;
-                        case 'terms':
-                            pageId = 'terms-page';
-                            break;
-                        case 'disclaimer':
-                            pageId = 'disclaimer-page';
-                            break;
-                        default:
-                            pageId = 'home-content';
-                    }
-                    
-                    showPage(pageId);
-                });
-            });
-            
-            // Category Filter Functionality
-            const categoryFilters = document.querySelectorAll('.category-filter');
-            const articleCards = document.querySelectorAll('.article-card');
-            
-            categoryFilters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    // Remove active class from all filters
-                    categoryFilters.forEach(f => f.classList.remove('active'));
-                    // Add active class to clicked filter
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    // Show/hide articles based on category
-                    articleCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Category links in footer
-            const categoryLinks = document.querySelectorAll('.category-link');
-            categoryLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const category = this.getAttribute('data-category');
-                    
-                    // Show home page first
-                    showPage('home-content');
-                    
-                    // Then filter articles
-                    categoryFilters.forEach(f => f.classList.remove('active'));
-                    document.querySelector(`.category-filter[data-category="${category}"]`).classList.add('active');
-                    
-                    articleCards.forEach(card => {
-                        if (card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                    
-                    // Scroll to articles section
-                    setTimeout(() => {
-                        document.querySelector('.articles-grid').scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                });
-            });
-            
-            // Article navigation - Read More buttons
-            const readMoreButtons = document.querySelectorAll('.read-more');
-            readMoreButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const articleType = this.getAttribute('data-article');
-                    
-                    let articleId;
-                    switch(articleType) {
-                        case 'heart-health':
-                            articleId = 'heart-health-article';
-                            break;
-                        case 'sleep-remedies':
-                            articleId = 'sleep-remedies-article';
-                            break;
-                        case 'hiit-workouts':
-                            articleId = 'hiit-workouts-article';
-                            break;
-                        case 'mindfulness-meditation':
-                            articleId = 'mindfulness-meditation-article';
-                            break;
-                        case 'sleep-performance':
-                            articleId = 'sleep-performance-article';
-                            break;
-                        default:
-                            articleId = articleType + '-article';
-                    }
-                    
-                    const articleElement = document.getElementById(articleId);
-                    if (articleElement) {
-                        showPage(articleId);
-                    } else {
-                        // Fallback to first article
-                        showPage('heart-health-article');
-                    }
-                });
-            });
-            
-            // Calculator functionality
-            const calculatorCards = document.querySelectorAll('.calculator-card');
-            const calculatorModals = document.querySelectorAll('.calculator-modal');
-            const closeButtons = document.querySelectorAll('.close-calculator');
-            
-            // Open calculator modal
-            calculatorCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const calculatorType = this.getAttribute('data-calculator');
-                    const modal = document.getElementById(`${calculatorType}-calculator`);
-                    if (modal) {
-                        modal.style.display = 'block';
-                    }
-                });
-            });
-            
-            // Close calculator modal
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.calculator-modal');
-                    modal.style.display = 'none';
-                });
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                calculatorModals.forEach(modal => {
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
-            
-            // BMI Calculator
-            document.getElementById('calculate-bmi').addEventListener('click', function() {
-                const height = parseFloat(document.getElementById('bmi-height').value) / 100; // Convert to meters
-                const weight = parseFloat(document.getElementById('bmi-weight').value);
-                
-                if (height && weight) {
-                    const bmi = weight / (height * height);
-                    const resultElement = document.getElementById('bmi-value');
-                    const interpretationElement = document.getElementById('bmi-interpretation');
-                    const resultDiv = document.getElementById('bmi-result');
-                    
-                    resultElement.textContent = `BMI: ${bmi.toFixed(1)}`;
-                    
-                    if (bmi < 18.5) {
-                        interpretationElement.textContent = 'Underweight - Consider consulting a healthcare provider';
-                        interpretationElement.style.color = '#ff9800';
-                    } else if (bmi < 25) {
-                        interpretationElement.textContent = 'Normal weight - Maintain your healthy lifestyle!';
-                        interpretationElement.style.color = '#4caf50';
-                    } else if (bmi < 30) {
-                        interpretationElement.textContent = 'Overweight - Consider lifestyle adjustments';
-                        interpretationElement.style.color = '#ff9800';
-                    } else {
-                        interpretationElement.textContent = 'Obese - Consult a healthcare provider for guidance';
-                        interpretationElement.style.color = '#f44336';
-                    }
-                    
-                    resultDiv.style.display = 'block';
-                }
-            });
-            
-            // Calorie Calculator
-            document.getElementById('calculate-calories').addEventListener('click', function() {
-                const age = parseInt(document.getElementById('cal-age').value);
-                const gender = document.getElementById('cal-gender').value;
-                const height = parseFloat(document.getElementById('cal-height').value);
-                const weight = parseFloat(document.getElementById('cal-weight').value);
-                const activity = parseFloat(document.getElementById('cal-activity').value);
-                const goal = document.getElementById('cal-goal').value;
-                
-                if (age && height && weight) {
-                    // Mifflin-St Jeor Equation
-                    let bmr;
-                    if (gender === 'male') {
-                        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-                    } else {
-                        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-                    }
-                    
-                    let tdee = bmr * activity;
-                    
-                    // Adjust for goal
-                    if (goal === 'lose') {
-                        tdee -= 500; // 500 calorie deficit for weight loss
-                    } else if (goal === 'gain') {
-                        tdee += 500; // 500 calorie surplus for weight gain
-                    }
-                    
-                    const resultElement = document.getElementById('calories-value');
-                    const interpretationElement = document.getElementById('calories-interpretation');
-                    const resultDiv = document.getElementById('calories-result');
-                    
-                    resultElement.textContent = `${Math.round(tdee)} calories per day`;
-                    
-                    let interpretation = '';
-                    if (goal === 'maintain') {
-                        interpretation = 'This is your maintenance calorie level to maintain your current weight.';
-                    } else if (goal === 'lose') {
-                        interpretation = 'This calorie target should help you lose approximately 0.5-1 kg per week.';
-                    } else {
-                        interpretation = 'This calorie target should help you gain approximately 0.5 kg per week.';
-                    }
-                    
-                    interpretationElement.textContent = interpretation;
-                    resultDiv.style.display = 'block';
-                }
-            });
-            
-            // Heart Rate Calculator
-            document.getElementById('calculate-heart-rate').addEventListener('click', function() {
-                const age = parseInt(document.getElementById('hr-age').value);
-                const restingHR = parseInt(document.getElementById('hr-resting').value) || 70;
-                
-                if (age) {
-                    const maxHR = 220 - age;
-                    const reserveHR = maxHR - restingHR;
-                    
-                    const zones = {
-                        'Zone 1 (Very Light)': [restingHR + reserveHR * 0.5, restingHR + reserveHR * 0.6],
-                        'Zone 2 (Light)': [restingHR + reserveHR * 0.6, restingHR + reserveHR * 0.7],
-                        'Zone 3 (Moderate)': [restingHR + reserveHR * 0.7, restingHR + reserveHR * 0.8],
-                        'Zone 4 (Hard)': [restingHR + reserveHR * 0.8, restingHR + reserveHR * 0.9],
-                        'Zone 5 (Maximum)': [restingHR + reserveHR * 0.9, maxHR]
-                    };
-                    
-                    const zonesElement = document.getElementById('heart-rate-zones');
-                    const resultDiv = document.getElementById('heart-rate-result');
-                    
-                    let zonesHTML = '';
-                    for (const [zone, range] of Object.entries(zones)) {
-                        zonesHTML += `
-                            <div style="margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 5px;">
-                                <strong>${zone}:</strong> ${Math.round(range[0])} - ${Math.round(range[1])} bpm
-                            </div>
-                        `;
-                    }
-                    
-                    zonesElement.innerHTML = zonesHTML;
-                    resultDiv.style.display = 'block';
-                }
-            });
-            
-            // Water Intake Calculator
-            document.getElementById('calculate-water').addEventListener('click', function() {
-                const weight = parseFloat(document.getElementById('water-weight').value);
-                const activity = document.getElementById('water-activity').value;
-                const climate = document.getElementById('water-climate').value;
-                
-                if (weight) {
-                    let baseWater = weight * 0.033; // Base: 33ml per kg
-                    
-                    // Activity multiplier
-                    const activityMultipliers = {
-                        'low': 1.0,
-                        'moderate': 1.2,
-                        'high': 1.5,
-                        'very-high': 1.8
-                    };
-                    
-                    // Climate multiplier
-                    const climateMultipliers = {
-                        'temperate': 1.0,
-                        'hot': 1.2,
-                        'dry': 1.3
-                    };
-                    
-                    const totalWater = baseWater * activityMultipliers[activity] * climateMultipliers[climate];
-                    const liters = totalWater;
-                    const cups = liters / 0.24; // Approximately 8 oz cups
-                    
-                    const resultElement = document.getElementById('water-value');
-                    const interpretationElement = document.getElementById('water-interpretation');
-                    const resultDiv = document.getElementById('water-result');
-                    
-                    resultElement.textContent = `${liters.toFixed(1)} liters (${Math.round(cups)} cups) per day`;
-                    interpretationElement.textContent = 'This is your recommended daily water intake. Remember to adjust based on thirst and activity levels.';
-                    resultDiv.style.display = 'block';
-                }
-            });
-            
-            // Sleep Assessment Calculator
-            document.getElementById('calculate-sleep').addEventListener('click', function() {
-                const hours = parseFloat(document.getElementById('sleep-hours').value);
-                const quality = parseInt(document.getElementById('sleep-quality').value);
-                const wakeups = document.getElementById('sleep-wakeups').value;
-                const morning = document.getElementById('sleep-morning').value;
-                
-                if (hours && quality) {
-                    // Calculate sleep score (0-100)
-                    let score = 0;
-                    
-                    // Hours component (max 40 points)
-                    if (hours >= 7 && hours <= 9) score += 40;
-                    else if (hours >= 6.5 || hours <= 9.5) score += 30;
-                    else if (hours >= 6 || hours <= 10) score += 20;
-                    else score += 10;
-                    
-                    // Quality component (max 30 points)
-                    score += quality * 3;
-                    
-                    // Wake-ups component (max 20 points)
-                    const wakeupScores = {
-                        '0': 20,
-                        '1': 15,
-                        '3': 10,
-                        'many': 5
-                    };
-                    score += wakeupScores[wakeups] || 10;
-                    
-                    // Morning energy component (max 10 points)
-                    const morningScores = {
-                        'refreshed': 10,
-                        'somewhat': 7,
-                        'tired': 4,
-                        'exhausted': 1
-                    };
-                    score += morningScores[morning] || 5;
-                    
-                    const resultElement = document.getElementById('sleep-score');
-                    const interpretationElement = document.getElementById('sleep-interpretation');
-                    const recommendationsElement = document.getElementById('sleep-recommendations');
-                    const resultDiv = document.getElementById('sleep-result');
-                    
-                    resultElement.textContent = `Sleep Score: ${Math.round(score)}/100`;
-                    
-                    let interpretation = '';
-                    let recommendations = '<h4>Recommendations:</h4><ul>';
-                    
-                    if (score >= 80) {
-                        interpretation = 'Excellent sleep quality! Keep maintaining your healthy sleep habits.';
-                        interpretationElement.style.color = '#4caf50';
-                    } else if (score >= 60) {
-                        interpretation = 'Good sleep quality with some room for improvement.';
-                        interpretationElement.style.color = '#ff9800';
-                    } else {
-                        interpretation = 'Your sleep quality needs attention. Consider implementing sleep improvements.';
-                        interpretationElement.style.color = '#f44336';
-                    }
-                    
-                    // Generate recommendations based on inputs
-                    if (hours < 7) {
-                        recommendations += '<li>Aim for 7-9 hours of sleep per night</li>';
-                    }
-                    if (quality < 7) {
-                        recommendations += '<li>Improve sleep environment (dark, quiet, cool room)</li>';
-                    }
-                    if (wakeups !== '0') {
-                        recommendations += '<li>Limit fluids before bedtime and establish a consistent sleep schedule</li>';
-                    }
-                    if (morning !== 'refreshed') {
-                        recommendations += '<li>Consider a relaxing bedtime routine and avoid screens before sleep</li>';
-                    }
-                    
-                    recommendations += '</ul>';
-                    
-                    interpretationElement.textContent = interpretation;
-                    recommendationsElement.innerHTML = recommendations;
-                    resultDiv.style.display = 'block';
-                }
-            });
-            
-            // Initialize by showing home page
-            showPage('home-content');
-        });
-    </script>
+<!-- 簡易 mobile menu -->
+<script>
+    document.querySelector('.mobile-menu')?.addEventListener('click', () => {
+        const nav = document.querySelector('nav');
+        if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+</script>
 </body>
 </html>
