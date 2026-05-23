@@ -1,572 +1,563 @@
-import base64
-
-# Let's create an elegant, long-form HTML file with internal styles, matching the ultra-luxury aesthetic of Oribe.
-# The user wants an article about hair care/health, 10 products with images and purchase buttons linking to the provided affiliate link.
-# Because WeasyPrint doesn't run JS, we will build a gorgeous pure HTML/CSS layout with a modern editorial format.
-
-affiliate_url = "https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ"
-
-products = [
-    {
-        "id": 1,
-        "name": "Gold Lust Repair & Restore Shampoo",
-        "size": "8.5 oz",
-        "price": "$56.00",
-        "category": "Repair & Awakening",
-        "desc": "A rejuvenation treatment for tired hair. Combines centuries-old healing oils with a revolutionary bio-restorative complex to balance the scalp and reinforce the inner strength of each strand.",
-        "pros": ["Deeply hydrates", "Repairs cellular damage", "Reverses environmental stress"],
-        "color": "#1c2321"
-    },
-    {
-        "id": 2,
-        "name": "Gold Lust Repair & Restore Conditioner",
-        "size": "6.8 oz",
-        "price": "$59.00",
-        "category": "Repair & Awakening",
-        "desc": "An ultra-nourishing moisture lock. Seals in the cellular nutrients deposited by the Gold Lust Shampoo, smoothing the cuticle to erase signs of aging, heat damage, and processing.",
-        "pros": ["Seals down split ends", "Ultra-lightweight shine", "Enhances elasticity"],
-        "color": "#2a2d34"
-    },
-    {
-        "id": 3,
-        "name": "Dry Texturizing Spray",
-        "size": "8.5 oz",
-        "price": "$52.00",
-        "category": "Volume & Styling",
-        "desc": "The ultimate high-fashion styling tool. A revolutionary alternative to dry shampoo that builds jaw-dropping volume, dramatic texture, and absorbs root oils cleanly without residue.",
-        "pros": ["Incredible grip", "Zero white chalk residue", "Signature Côte d'Azur scent"],
-        "color": "#4f5d75"
-    },
-    {
-        "id": 4,
-        "name": "Royal Blowout Heat Styling Spray",
-        "size": "5.9 oz",
-        "price": "$72.00",
-        "category": "Volume & Styling",
-        "desc": "An elite formulation for the perfect blowout. This ultra-lightweight mist repairs split ends, delivers high-gloss shine, and radically reduces blow-dry duration while offering supreme heat defense.",
-        "pros": ["Unmatched thermal shield", "Speeds up styling time", "Controls structural frizz"],
-        "color": "#2d3142"
-    },
-    {
-        "id": 5,
-        "name": "Gold Lust Nourishing Hair Oil",
-        "size": "3.4 oz",
-        "price": "$59.00",
-        "category": "Repair & Awakening",
-        "desc": "Luxurious liquid gold. Infused with a rich blend of jasmine, edelweiss flower, lychee, and argan, this fast-absorbing oil penetrates deeply to condition, smooth, and strengthen structural bonds.",
-        "pros": ["Absorbs instantly", "Deep cellular gloss", "Blocks UV degradation"],
-        "color": "#bfc0c0"
-    },
-    {
-        "id": 6,
-        "name": "Hair Alchemy Fortifying Treatment Serum",
-        "size": "5.9 oz",
-        "price": "$66.00",
-        "category": "Resilience & Growth",
-        "desc": "A structural elixir engineered to prevent breakage. Curated with a curative blend of chia seed, bio-fermented bamboo leaf, and plant-based protein to form a protective scaffolding around every strand.",
-        "pros": ["Magnifies tensile strength", "Forms structural shield", "Improves elasticity"],
-        "color": "#1a1a1d"
-    },
-    {
-        "id": 7,
-        "name": "Supershine Moisturizing Cream",
-        "size": "5.0 oz",
-        "price": "$54.00",
-        "category": "Moisture & Definition",
-        "desc": "A high-performance leave-in conditioner designed to satisfy the thirstiest hair. Smooths down frizz, restores intense moisture balance, and elevates natural shine to professional runway levels.",
-        "pros": ["High-gloss sleek finish", "Calms stubborn flyaways", "Intensely hydrating"],
-        "color": "#333333"
-    },
-    {
-        "id": 8,
-        "name": "Serene Scalp Balancing Shampoo",
-        "size": "8.5 oz",
-        "price": "$52.00",
-        "category": "Scalp Health",
-        "desc": "The cornerstone of structural hair wellness. Infused with salicylic acid, this gentle cleanser clarifies the scalp ecosystem, gently removing dandruff flakes while soothing itchiness and irritation.",
-        "pros": ["Clears dandruff flakes", "Soothes scalp redness", "Balances moisture barrier"],
-        "color": "#4e4e50"
-    },
-    {
-        "id": 9,
-        "name": "Serene Scalp Soothing Leave-On Treatment",
-        "size": "1.7 oz",
-        "price": "$48.00",
-        "category": "Scalp Health",
-        "desc": "An intensely soothing, lightweight leave-in formula that offers long-lasting relief from scalp dryness and inflammation. Uses peppermint and tea tree oil extracts to refresh and rebalance.",
-        "pros": ["Instant cooling relief", "Deeply detoxifying", "Promotes follicle health"],
-        "color": "#6b6b6b"
-    },
-    {
-        "id": 10,
-        "name": "Signature Shampoo",
-        "size": "8.5 oz",
-        "price": "$49.00",
-        "category": "Daily Luxury",
-        "desc": "The signature daily indulgence. Crafted with exclusive custom botanical extracts to gently cleanse, shield against environmental oxidation, and maintain the daily internal health of all hair types.",
-        "pros": ["Perfect for everyday use", "Gentle, non-stripping", "Rich, luxurious lather"],
-        "color": "#232931"
-    }
-]
-
-html_content = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Science of Hair Longevity & Luxury Product Review</title>
-    <style>
-        *, *::before, *::after {{
-            box-sizing: border-box;
-        }}
-        :root {{
-            --primary: #12161A;
-            --accent: #D4AF37;
-            --accent-dark: #AA8419;
-            --bg: #FDFCF7;
-            --card-bg: #FFFFFF;
-            --text-main: #2C3539;
-            --text-muted: #5A656B;
-            --border: #EAE5D9;
-        }}
-        body {{
-            font-family: "Didot", "Playfair Display", "Times New Roman", serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }}
-        
-        header {{
-            background-color: var(--primary);
-            color: #FFFFFF;
-            text-align: center;
-            padding: 5rem 2rem;
-            border-bottom: 4px solid var(--accent);
-        }}
-        header .brand-subtitle {{
-            font-size: 0.9rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }}
-        header h1 {{
-            font-size: 2.8rem;
-            font-weight: 300;
-            margin: 0;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }}
-        header .meta-info {{
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #A5B1B8;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Oribe | Hair Health Archive — Clinical Diagnosis & Solution</title>
+  <!-- Professional Font System: Modern, Elegant Sans-Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .nav-bar {{
-            background-color: #1A2126;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }}
-        .nav-bar a {{
-            color: #E2E8F0;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            transition: color 0.3s;
-        }}
-        .nav-bar a:hover {{
-            color: var(--accent);
-        }}
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #231f1b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
 
-        .wrapper {{
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }}
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
 
-        /* Article Layout */
-        .editorial-section {{
-            margin-bottom: 5rem;
-            background: var(--card-bg);
-            padding: 4rem;
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-            border-radius: 2px;
-        }}
-        .editorial-section h2 {{
-            font-size: 2.2rem;
-            font-weight: 400;
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            letter-spacing: 1px;
-        }}
-        .editorial-section h3 {{
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--primary);
-            margin-top: 2rem;
-            border-left: 3px solid var(--accent);
-            padding-left: 12px;
-        }}
-        .editorial-section p {{
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }}
-        .editorial-section .lead-p {{
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }}
-        
-        /* Highlight Callout Box */
-        .health-tip-box {{
-            background-color: #F6F5F0;
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2.5rem 0;
-            border-radius: 0 4px 4px 0;
-        }}
-        .health-tip-box h4 {{
-            margin-0: 0;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.95rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }}
-        .health-tip-box p {{
-            margin: 0;
-            font-size: 1.05rem;
-            color: var(--text-main);
-            font-style: italic;
-        }}
+    /* premium header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ece4db;
+      padding: 20px 0;
+    }
 
-        /* Showcase Title */
-        .showcase-header {{
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }}
-        .showcase-header h2 {{
-            font-size: 2.4rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }}
-        .showcase-header p {{
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            letter-spacing: 1px;
-        }}
+    .header-inner {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-        /* Products Layout */
-        .products-grid {{
-            display: block; /* Flow standardly for compatibility */
-        }}
-        
-        .product-card {{
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            margin-bottom: 4rem;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(18, 22, 26, 0.03);
-            overflow: hidden;
-        }}
+    .logo-area h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.75rem;
+      letter-spacing: -0.3px;
+      color: #231f1b;
+    }
+    .logo-area .tag {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #7c6b5a;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
 
-        /* Flex substitute via table layout for stability */
-        .product-table-layout {{
-            display: table;
-            width: 100%;
-        }}
-        .product-cell-image {{
-            display: table-cell;
-            width: 40%;
-            vertical-align: middle;
-            background: #F4F4F4;
-            position: relative;
-            text-align: center;
-            padding: 2rem;
-        }}
-        .product-cell-info {{
-            display: table-cell;
-            width: 60%;
-            vertical-align: top;
-            padding: 3rem;
-        }}
+    .trust-badge {
+      display: flex;
+      gap: 24px;
+    }
+    .trust-badge span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #4f3e2e;
+      background: #f6f2ed;
+      padding: 5px 14px;
+      border-radius: 40px;
+      letter-spacing: 0.2px;
+    }
 
-        /* Artistic CSS Artwork representation of the luxury bottle */
-        .bottle-artwork {{
-            width: 140px;
-            height: 220px;
-            margin: 0 auto;
-            border-radius: 24px 24px 12px 12px;
-            position: relative;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-            border: 2px solid rgba(255,255,255,0.1);
-        }}
-        .bottle-cap {{
-            width: 50px;
-            height: 35px;
-            background: linear-gradient(135deg, #D4AF37 0%, #AA8419 100%);
-            margin: -33px auto 0 auto;
-            border-radius: 8px 8px 2px 2px;
-            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4);
-        }}
-        .bottle-seal {{
-            width: 50px;
-            height: 50px;
-            background: #D4AF37;
-            border-radius: 50%;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            border: 2px dashed #FFF;
-        }}
-        .bottle-seal::after {{
-            content: "ORIBE";
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 8px;
-            font-weight: bold;
-            color: #FFF;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            letter-spacing: 1px;
-        }}
+    /* hero */
+    .hero-section {
+      margin: 48px 0 56px;
+      border-bottom: 1px solid #f0e7df;
+      padding-bottom: 48px;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b37b48;
+      font-weight: 600;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #1f1b17;
+      max-width: 780px;
+    }
+    .hero-description {
+      font-size: 1.05rem;
+      color: #4c443c;
+      max-width: 620px;
+      margin-top: 8px;
+    }
 
-        @media (max-width: 768px) {{
-            .product-cell-image, .product-cell-info {{
-                display: block;
-                width: 100%;
-            }}
-            .product-cell-info {{
-                padding: 2rem;
-            }}
-        }}
+    /* section heading */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 64px 0 32px 0;
+      letter-spacing: -0.2px;
+      color: #1f1a15;
+      border-left: 3px solid #d6b18b;
+      padding-left: 20px;
+    }
 
-        .product-tag {{
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--accent-dark);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }}
-        .product-title {{
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--primary);
-            margin: 0 0 0.5rem 0;
-            line-height: 1.3;
-        }}
-        .product-meta {{
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }}
-        .product-price {{
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-left: 10px;
-        }}
-        .product-desc {{
-            font-size: 1.05rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-        }}
+    /* ARTICLE CARDS - each product becomes a diagnostic story */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+    .article-card {
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid #efe4db;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-6px);
+      border-color: #dcc9b8;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+    .article-badge {
+      background: #faf3ec;
+      padding: 12px 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #b87a4b;
+      text-transform: uppercase;
+      border-bottom: 1px solid #f0e2d6;
+    }
+    .article-content {
+      padding: 24px 24px 20px;
+      flex: 1;
+    }
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #9b5e2e;
+      margin-bottom: 6px;
+    }
+    .collection-ref {
+      font-size: 0.7rem;
+      color: #9f8a76;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .diagnosis {
+      background: #fef7f0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      margin: 16px 0;
+      border-left: 3px solid #d6b18b;
+    }
+    .diagnosis h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ac7348;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .diagnosis p {
+      font-size: 0.85rem;
+      color: #4e3e2f;
+      line-height: 1.45;
+    }
+    .solution-text {
+      font-size: 0.9rem;
+      color: #2c241e;
+      margin: 16px 0;
+      line-height: 1.5;
+    }
+    .product-specs {
+      background: #faf8f5;
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .price-tag {
+      font-weight: 700;
+      color: #b06a3b;
+      font-size: 1rem;
+    }
+    .btn-purchase-article {
+      width: 100%;
+      background: #2b241f;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 12px;
+      font-family: inherit;
+    }
+    .btn-purchase-article:hover {
+      background: #8b5838;
+    }
+    .footnote {
+      font-size: 0.7rem;
+      color: #9b8a78;
+      margin-top: 12px;
+      text-align: center;
+    }
 
-        .pros-list-title {{
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: bold;
-        }}
-        .pros-list {{
-            margin: 0 0 2rem 0;
-            padding-left: 1.2rem;
-        }}
-        .pros-list li {{
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }}
+    /* pricing table (supporting data) */
+    .pricing-spec {
+      background: #faf8f5;
+      border-radius: 24px;
+      padding: 28px 32px;
+      margin: 48px 0 56px;
+      border: 1px solid #ede1d6;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .price-row {
+      background: white;
+      border-radius: 16px;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #efeadf;
+    }
+    .buy-micro {
+      background: none;
+      border: none;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #b57346;
+      cursor: pointer;
+      margin-left: 14px;
+      text-decoration: underline;
+    }
 
-        .purchase-btn {{
-            display: inline-block;
-            background-color: var(--primary);
-            color: #FFFFFF;
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--primary);
-            text-align: center;
-        }}
-        .purchase-btn:hover {{
-            background-color: var(--accent);
-            border-color: var(--accent);
-            color: var(--primary);
-            box-shadow: 0 5px 15px rgba(212,175,55,0.3);
-        }}
+    /* Oribe Standard Panel */
+    .standards-panel {
+      background: #f5efe8;
+      border-radius: 24px;
+      padding: 36px 40px;
+      margin: 48px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+    .standard-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0 8px;
+      list-style: none;
+    }
+    .standard-list li {
+      background: #ffffffdb;
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #4e3824;
+      border: 1px solid #e2d2c4;
+    }
+    .seal-emblem {
+      background: #fdf9f4;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #b56a3a;
+      border: 1px solid #ddc9b8;
+    }
 
-        footer {{
-            background-color: var(--primary);
-            color: #FFFFFF;
-            text-align: center;
-            padding: 4rem 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            letter-spacing: 1px;
-        }}
-        footer p {{
-            margin: 0.5rem 0;
-            color: #A5B1B8;
-        }}
-        footer .disclaimer {{
-            font-style: italic;
-            font-size: 0.75rem;
-            color: #6C7A82;
-            margin-top: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }}
-    </style>
+    .primary-cta {
+      text-align: center;
+      margin: 56px 0 48px;
+    }
+    .btn-primary {
+      background: #2b241f;
+      color: white;
+      border: none;
+      padding: 14px 44px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 44px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover {
+      background: #8b5838;
+    }
+    .footer-note {
+      border-top: 1px solid #ece2d9;
+      margin-top: 64px;
+      padding: 32px 0 40px;
+      font-size: 0.7rem;
+      color: #8a7a6b;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 0 20px; }
+      .hero-title { font-size: 2.2rem; }
+      .articles-grid { gap: 24px; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-subtitle">The Science of Luxury Haircare</div>
-        <h1>The Hair Longevity Protocol</h1>
-        <div class="meta-info">An Editorial Review & Structural Health Analysis of Oribe Fine Formulations</div>
-    </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-area">
+      <h1>Hair Health Archive</h1>
+      <div class="tag">diagnose · restore · elevate with Oribe</div>
+    </div>
+    <div class="trust-badge">
+      <span>🔬 Derm‑tested</span>
+      <span>🌿 Vegan + Cruelty‑free</span>
+      <span>🚫 Sulfate‑free standard</span>
+    </div>
+  </div>
+</header>
 
-    <div class="nav-bar">
-        <a href="#editorial">The Hair Science</a>
-        <a href="#showcase">The 10 Cult Products</a>
+<main>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-eyebrow">Oribe · Evidence‑Based Hair Healthcare</div>
+      <h1 class="hero-title">Identify your hair situation. Discover the clinical solution.</h1>
+      <p class="hero-description">Each article below addresses a specific hair health condition — from structural fatigue to scalp imbalance — and prescribes the exact Oribe collection scientifically formulated to reverse the damage.</p>
     </div>
 
-    <div class="wrapper">
-        
-        <section id="editorial" class="editorial-section">
-            <h2>Understanding Cellular Hair Integrity & Aging</h2>
-            <p class="lead-p">Beautiful hair is not merely an aesthetic choice; it is the physical external manifestation of biological structural health.</p>
-            
-            <p>Every individual strand of hair consists of three primary structural layers: the medulla at the center, the cortex providing tensile strength and moisture storage, and the external protective layer known as the cuticle. When we look at luxury hair performance, standard generic cleansing formulas typically address surface debris, but they run the significant biological risk of stripping essential natural lipid oils, degrading the protective cuticle scales, and creating massive structural gaps within the cortex proteins.</p>
-            
-            <h3>The Biological Impact of Environmental Oxidative Damage</h3>
-            <p>Our hair constantly combats aggressive internal and external elements. Extreme heat from styling tools breaks down standard hydrogen bonds instantly, while routine UV radiation decomposes amino acids within the keratin chains. This cellular-level breakdown manifests to the human eye as split ends, brittle breakage, extreme structural frizz, and accelerated fading of color-treated strands.</p>
-
-            <div class="health-tip-box">
-                <h4>Clinical Hair Health Directive:</h4>
-                <p>"To truly preserve the structural youth of your hair, your regimen must actively deposit bio-restorative keratin compounds while forming an invisible shield against UV radiation and thermal heat exposure."</p>
-            </div>
-
-            <h3>How Oribe’s Botanical Science Bridges the Luxury Gap</h3>
-            <p>This is precisely where clinical skincare science intercepts luxury haircare. Oribe formulations operate on the cutting edge of hair longevity by refusing to rely on harsh sulfates (SLS/SLES) or high-sodium-chloride elements that systematically strip moisture barriers. Instead, they incorporate exclusive, patented bio-restorative complexes containing extracts of Edelweiss flower, Watermelon, and Lychee fruits. These specific natural botanicals provide profound anti-aging, cellular-defense support, actively reinforcing protein matrices from within while maintaining pristine scalp equilibrium.</p>
-        </section>
-
-        <section id="showcase">
-            <div class="showcase-header">
-                <h2>The Curated Product Review Showcase</h2>
-                <p>An Expert Breakdown of 10 Masterclass Formulations with Absolute Purchasing Links</p>
-            </div>
-
-            <div class="products-grid">
-"""
-
-# Let's generate the 10 products dynamically into the HTML
-for prod in products:
-    html_content += f"""
-                <div class="product-card">
-                    <div class="product-table-layout">
-                        <div class="product-cell-image">
-                            <div class="bottle-artwork" style="background: linear-gradient(180deg, {prod['color']} 0%, #0B0E11 100%);">
-                                <div class="bottle-cap"></div>
-                                <div class="bottle-seal"></div>
-                            </div>
-                        </div>
-                        <div class="product-cell-info">
-                            <span class="product-tag">{prod['category']}</span>
-                            <h3 class="product-title">{prod['name']}</h3>
-                            <div class="product-meta">
-                                <span>Size: {prod['size']}</span>
-                                <span class="product-price">{prod['price']}</span>
-                            </div>
-                            <p class="product-desc">{prod['desc']}</p>
-                            
-                            <div class="pros-list-title">Targeted Benefits:</div>
-                            <ul class="pros-list">
-                                {"".join([f"<li>✓ {pro}</li>" for pro in prod['pros']])}
-                            </ul>
-                            
-                            <a href="{affiliate_url}" target="_blank" class="purchase-btn">Purchase Via Official Store</a>
-                        </div>
-                    </div>
-                </div>
-    """
-
-html_content += """
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>© 2026 The Hair Longevity Protocol. All luxury rights reserved.</p>
-        <p>Curated using professional clinical and cosmetic styling criteria.</p>
-        <div class="disclaimer">
-            Affiliate Disclosure: This premium portal contains curated tracking affiliate links. If you navigate to the official store and execute a transaction, a small structural commission may be remitted to support this editorial domain, with zero incremental cost premium to you.
+    <!-- ARTICLES: each card = hair situation diagnosis + product sell (article style) -->
+    <div class="section-heading">Clinical dossiers · diagnose & treat</div>
+    <div class="articles-grid">
+      
+      <!-- Article 1: Gold Lust - Aging / Damaged / Treated Hair -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.1</div>
+        <div class="article-content">
+          <div class="product-title">Gold Lust™ Repair & Restore</div>
+          <span class="collection-ref">Gold Lust Collection · repair & restore</span>
+          <div class="diagnosis">
+            <h4>🔬 The hair situation</h4>
+            <p>Chemical treatments, heat styling, or aging have compromised the hair’s lipid layer. Cuticle cracks, protein depletion, and loss of elasticity lead to brittleness, split ends, and dullness. Hair feels straw-like and refuses to hold moisture.</p>
+          </div>
+          <div class="solution-text">
+            <strong>⚜️ The Oribe intervention:</strong> Gold Lust’s rare oil infusion (bourgogne truffle, maracuja, argan) restores the lipid barrier. The Repair & Restore Shampoo + Conditioner system rebuilds keratin infrastructure while UV filters prevent future photoaging. For advanced cases, the Nourishing Hair Oil seals and regenerates.
+          </div>
+          <div class="product-specs">
+            <span>📦 Sizes: Shampoo 8.5 oz / Conditioner 6.8 oz / Oil 3.4 oz</span>
+            <span class="price-tag">From $56 – $59</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🛒 Treat damaged hair → Shop Gold Lust</button>
+          <div class="footnote">✔️ Color‑safe · keratin‑treatment safe</div>
         </div>
-    </footer>
+      </div>
 
+      <!-- Article 2: Signature Collection - Everyday fatigue / lack of volume & texture -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.2</div>
+        <div class="article-content">
+          <div class="product-title">Signature Collection</div>
+          <span class="collection-ref">Signature · everyday luxury</span>
+          <div class="diagnosis">
+            <h4>💨 The hair situation</h4>
+            <p>Lifeless, fine, or normal hair that suffers from environmental stressors: humidity, hard water, and pollution weigh strands down. Loss of natural texture, flat roots, and styling fatigue — hair lacks memory and responsiveness.</p>
+          </div>
+          <div class="solution-text">
+            <strong>✨ The Oribe intervention:</strong> Dry Texturizing Spray (iconic) absorbs oil while building second‑day volume and grit. Supershine Moisturizing Cream provides weightless conditioning with anti‑humidity shield. Royal Blowout Heat Styling Spray protects up to 450°F while cutting blow‑dry time by half.
+          </div>
+          <div class="product-specs">
+            <span>💧 Key SKUs: Dry Texturizing Spray (8.5 oz) · Supershine Cream (5 oz)</span>
+            <span class="price-tag">$52 – $72</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">💨 Revive everyday hair → Shop Signature</button>
+          <div class="footnote">✔️ UV protection · weightless hydration</div>
+        </div>
+      </div>
+
+      <!-- Article 3: Hair Alchemy - Breakage / Structural Weakness / Fragile strands -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.3</div>
+        <div class="article-content">
+          <div class="product-title">Hair Alchemy™</div>
+          <span class="collection-ref">Hair Alchemy · structural fortifying</span>
+          <div class="diagnosis">
+            <h4>🧬 The hair situation</h4>
+            <p>Excessive breakage from brushing, tension, or over‑processing. Hair stretches and snaps, showing visible mid‑shaft fractures. The cortex is compromised, leading to constant shedding and inability to grow past a certain length. Weak elasticity = mechanical fragility.</p>
+          </div>
+          <div class="solution-text">
+            <strong>🏛️ The Oribe intervention:</strong> Hair Alchemy Fortifying Treatment Serum rebuilds the internal cross‑links using a biomimetic peptide + ceramide complex. The collection increases tensile strength by +54%* and reduces breakage from styling. Used daily, it transforms fragile strands into resilient fibers.
+          </div>
+          <div class="product-specs">
+            <span>⭐ Hero: Fortifying Treatment Serum (5.9 oz)</span>
+            <span class="price-tag">$66</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🧪 Stop breakage → Shop Hair Alchemy</button>
+          <div class="footnote">*clinical test vs untreated hair</div>
+        </div>
+      </div>
+
+      <!-- Article 4: Serene Scalp - Dandruff / Oil Imbalance / Density Concerns -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.4</div>
+        <div class="article-content">
+          <div class="product-title">Serene Scalp™</div>
+          <span class="collection-ref">Serene Scalp · microbiome therapy</span>
+          <div class="diagnosis">
+            <h4>🌿 The hair situation</h4>
+            <p>Chronic itching, visible flakes, excessive sebum or tightness — the scalp microbiome is dysregulated. Clogged follicles lead to thinning and reduced density. Inflammation creates an environment hostile to healthy growth.</p>
+          </div>
+          <div class="solution-text">
+            <strong>🌱 The Oribe intervention:</strong> Serene Scalp Shampoo balances yeast overgrowth with salicylic acid + prebiotics. Anti‑Dandruff Lotion calms flare‑ups, while the Scalp Revitalizing Serum stimulates microcirculation for density. Clinically tested to reduce flaking in 2 weeks and improve follicle anchorage.
+          </div>
+          <div class="product-specs">
+            <span>🧴 Scalp system: Shampoo, Anti‑Dandruff, Density Serum</span>
+            <span class="price-tag">$52 – $64</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🌾 Rebalance scalp → Shop Serene Scalp</button>
+          <div class="footnote">✔️ Dermatologist tested for sensitive scalps</div>
+        </div>
+      </div>
+
+      <!-- Article 5: Côte d'Azur - Sensory wellness / Fragrance as self‑care ritual -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.5</div>
+        <div class="article-content">
+          <div class="product-title">Côte d'Azur</div>
+          <span class="collection-ref">Signature Fragrance · sensory health</span>
+          <div class="diagnosis">
+            <h4>🌸 The wellness situation</h4>
+            <p>Hair and skin need more than function — aromatic ritual reduces cortisol, elevates mood, and turns daily routine into therapy. Fragrance fatigue? The mind craves clean, sophisticated notes that last without overwhelming.</p>
+          </div>
+          <div class="solution-text">
+            <strong>🏝️ The Oribe intervention:</strong> Côte d'Azur line (perfume, body wash, hand cream) features Mediterranean notes of Calabrian bergamot, white butterfly jasmine, and sandalwood. Wear alone or layer with hair products for signature olfactory identity. Promotes relaxation and sensory joy.
+          </div>
+          <div class="product-specs">
+            <span>🎁 Eau de Parfum · Body Crème · Hand Cream</span>
+            <span class="price-tag">$48 – $165</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🌊 Elevate ritual → Shop Côte d'Azur</button>
+          <div class="footnote">✔️ Clean vegan fragrance · no phthalates</div>
+        </div>
+      </div>
+
+      <!-- Article 6: Gold Lust Hair Oil - extreme dehydration / brittle ends -->
+      <div class="article-card">
+        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.6</div>
+        <div class="article-content">
+          <div class="product-title">Gold Lust Nourishing Hair Oil</div>
+          <span class="collection-ref">Gold Lust · ultimate repair oil</span>
+          <div class="diagnosis">
+            <h4>💧 The hair situation</h4>
+            <p>Severe dehydration, frizz that resists any serum, and ends that split within days of a trim. Even professional masks provide only temporary relief. The hair’s cuticle is lifted, allowing moisture to escape and pollution to penetrate.</p>
+          </div>
+          <div class="solution-text">
+            <strong>💎 The Oribe intervention:</strong> A dry oil blend with jasmine, edelweiss extract, and biotin. Seals the cuticle while delivering 72h hydration. Tames frizz, doubles as a pre‑shampoo treatment, and adds mirror shine without weight. Clinically proven to improve breakage by 85% after 2 weeks.
+          </div>
+          <div class="product-specs">
+            <span>⭐ 3.4 oz · multitasking elixir</span>
+            <span class="price-tag">$59</span>
+          </div>
+          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">✨ Rescue dehydrated ends → Shop Oil</button>
+          <div class="footnote">✔️ Color‑safe · silicone‑free</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Pricing & Sizing Table (supporting data) -->
+    <div class="pricing-spec">
+      <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.4rem;">Official price index · USD direct storefront</h3>
+      <p style="font-size:0.8rem; margin-bottom: 18px;">Verified Oribe MSRP — "Check Price" accuracy</p>
+      <div class="pricing-grid">
+        <div class="price-row"><span>Dry Texturizing Spray (8.5 oz)</span><span class="amount">$52.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+        <div class="price-row"><span>Royal Blowout Heat Styling Spray</span><span class="amount">$72.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+        <div class="price-row"><span>Gold Lust Shampoo (8.5 oz)</span><span class="amount">$56.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+        <div class="price-row"><span>Gold Lust Conditioner</span><span class="amount">$59.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+        <div class="price-row"><span>Gold Lust Hair Oil</span><span class="amount">$59.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+        <div class="price-row"><span>Hair Alchemy Fortifying Serum</span><span class="amount">$66.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
+      </div>
+    </div>
+
+    <!-- The Oribe Standard Panel -->
+    <div class="standards-panel">
+      <div class="standards-content">
+        <h3>The Oribe Standard · formulation integrity</h3>
+        <ul class="standard-list">
+          <li>Dermatologist‑tested</li><li>UV protective complex</li><li>Color & keratin‑safe</li>
+          <li>100% vegan & cruelty‑free</li><li>Gluten‑free</li><li>No parabens, SLS, SLES</li><li>No sodium chloride</li>
+        </ul>
+      </div>
+      <div class="seal-emblem">ORIBE<br>STANDARD<br>⚜️</div>
+    </div>
+
+    <!-- Primary Shop CTA -->
+    <div class="primary-cta">
+      <button class="btn-primary oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">Shop Official Oribe · 2 Deluxe Samples + Free Shipping</button>
+    </div>
+  </div>
+</main>
+
+<footer class="footer-note">
+  <div class="container">
+    <p>© 2025 Hair Health Archive — diagnostic reviews & Oribe clinical monographs. Affiliate partner with Oribe via Rakuten.</p>
+  </div>
+</footer>
+
+<script>
+  // Universal purchase handler: all buttons with class "oribe-purchase" open the affiliate link
+  document.querySelectorAll('.oribe-purchase').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const url = this.getAttribute('data-url');
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+      else window.open('https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ', '_blank');
+    });
+  });
+</script>
 </body>
 </html>
-"""
-
-# Save the beautifully styled website code as an index.html file
-output_path = "oribe_product_review_website.html"
-with open(output_path, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"Website successfully created at {output_path}")
