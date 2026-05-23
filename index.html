@@ -1,389 +1,215 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowLab｜專業美妝評測｜保養推薦</title>
-    <meta name="fo-verify" content="399078d8-992e-4589-b12d-bc305864ce28" />
-    <meta name="description" content="專業美妝評測｜保養品真實心得｜Rakuten 合作推廣｜科學保養指南">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Oribe Product Reviews - The Luxe Edit</title>
     <style>
-        * {
+        :root {
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
-
-        body {
-            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #fef9f7;
-            color: #2c2c2c;
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* 主色調：玫瑰金 + 柔粉 */
-        :root {
-            --rose: #e8b4b8;
-            --rose-dark: #d49b9f;
-            --blush: #fadadd;
-            --deep-mauve: #6b4e5e;
-            --soft-gray: #f8f5f2;
-            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-            --radius: 24px;
-            --radius-sm: 16px;
-        }
-
-        /* 按鈕 */
-        .btn {
-            display: inline-block;
-            background: var(--rose);
-            color: white;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 40px;
-            transition: 0.25s;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-dark {
-            background: var(--deep-mauve);
-        }
-
-        .btn-dark:hover {
-            background: #543e4b;
-            transform: translateY(-2px);
-        }
-
-        .btn:hover {
-            background: var(--rose-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Header */
         header {
-            background: white;
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
         }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
+        header h1 {
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--gold);
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--rose), var(--deep-mauve));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        header p {
+            margin-top: 0.5rem;
+            color: #aaa;
+            letter-spacing: 1px;
         }
-
-        nav ul {
-            display: flex;
-            gap: 32px;
-            list-style: none;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
         }
-
-        nav a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #444;
-            transition: 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--rose);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
         .hero {
-            background: linear-gradient(120deg, #fff3f0 0%, #ffe9e4 100%);
-            padding: 80px 0;
-            border-radius: 0 0 48px 48px;
+            text-align: center;
+            margin-bottom: 4rem;
         }
-
-        .hero-grid {
+        .hero h2 {
+            font-weight: 400;
+            font-size: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        @media (min-width: 700px) {
+            .product-card {
+                flex-direction: row;
+            }
+        }
+        .product-image {
+            background-color: #f1f1f1;
+            min-height: 300px;
+            flex: 1;
             display: flex;
             align-items: center;
-            gap: 48px;
-            flex-wrap: wrap;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+            border-right: 1px solid #eee;
         }
-
-        .hero-text {
-            flex: 1;
+        .product-details {
+            padding: 2.5rem;
+            flex: 2;
         }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--deep-mauve);
-            margin-bottom: 20px;
+        .product-title {
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 1.8rem;
+            font-weight: 500;
         }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #5c5c5c;
-            margin-bottom: 32px;
-        }
-
-        .hero-img {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-img img {
-            max-width: 100%;
-            border-radius: 40px;
-            box-shadow: var(--shadow-md);
-        }
-
-        /* 美妝評測卡片 */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 48px;
-            color: var(--deep-mauve);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-        }
-
-        .review-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: 0.25s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .review-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .review-img {
-            height: 240px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .review-content {
-            padding: 24px;
-        }
-
         .rating {
-            color: #f5a623;
-            margin: 8px 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
-
-        /* 比較表 */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid #f0e4e0;
-        }
-
-        .comparison-table th {
-            background: var(--rose);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--deep-mauve);
-            color: white;
-            padding: 48px 0 24px;
-            margin-top: 48px;
-        }
-
-        .footer-inner {
+        .pros-cons {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 32px;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 6px;
         }
-
-        .affiliate-disclosure {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 32px;
+        .pros-cons ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .buy-button {
+            display: inline-block;
+            background-color: var(--dark);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+        .buy-button:hover {
+            background-color: var(--gold);
+        }
+        footer {
             text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            .hero-text h1 {
-                font-size: 2rem;
-            }
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #666;
+            background-color: white;
+            border-top: 1px solid #eee;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>THE LUXE EDIT</h1>
+        <p>Honest Reviews of High-End Haircare</p>
+    </header>
 
-<!-- 置頂橫幅 Rakuten 推廣 -->
-<div style="background: var(--rose); color: white; text-align: center; padding: 10px; font-size: 0.9rem;">
-    🌸 限時優惠｜透過 Rakuten 購買美妝最高享 15% 回饋 → <a href="https://www.rakuten.com/" target="_blank" style="color: white; font-weight: bold; text-decoration: underline;">立即逛逛</a>
-</div>
-
-<header>
-    <div class="container header-container">
-        <div class="logo">🌸 GlowLab</div>
-        <nav>
-            <ul>
-                <li><a href="#">首頁</a></li>
-                <li><a href="#reviews">評測</a></li>
-                <li><a href="#comparison">排行榜</a></li>
-                <li><a href="#about">關於</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu">☰</div>
-    </div>
-</header>
-
-<!-- Hero 區塊 -->
-<section class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <h1>真實測評 · 科學保養</h1>
-            <p>我們實測 100+ 款精華、乳霜、防曬，只推薦真正有效的美妝好物。<br>透過 <strong>Rakuten 購物</strong> 還可享高額現金回饋。</p>
-            <a href="#" class="btn btn-dark">🔥 看本週熱門推薦</a>
-        </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc8f5ecb?w=600" alt="美妝保養">
-        </div>
-    </div>
-</section>
-
-<!-- 評測專區 (Rakuten 聯盟商品) -->
-<section class="container section" id="reviews">
-    <h2 class="section-title">✨ 編輯精選 · 實測推薦</h2>
-    <div class="reviews-grid">
-        <!-- 商品 1 -->
-        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
-            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400');"></div>
-            <div class="review-content">
-                <h3>維C 亮白精華</h3>
-                <div class="rating">★★★★★ 4.8</div>
-                <p>14 天實測透亮感明顯，不黏膩好吸收。</p>
-                <span class="btn" style="margin-top: 12px;">👉 查看優惠</span>
-            </div>
-        </a>
-        <!-- 商品 2 -->
-        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
-            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1617897903246-719242758020?w=400');"></div>
-            <div class="review-content">
-                <h3>A醇 抗老晚霜</h3>
-                <div class="rating">★★★★☆ 4.6</div>
-                <p>溫和有效，細紋淡化有感，回購率最高。</p>
-                <span class="btn">🛒 透過 Rakuten 購買</span>
-            </div>
-        </a>
-        <!-- 商品 3 -->
-        <a href="https://www.rakuten.com/" target="_blank" class="review-card">
-            <div class="review-img" style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400');"></div>
-            <div class="review-content">
-                <h3>水光保濕防曬乳</h3>
-                <div class="rating">★★★★★ 4.9</div>
-                <p>清爽不泛白，日常通勤必備。</p>
-                <span class="btn">🔆 最新優惠</span>
-            </div>
-        </a>
-    </div>
-</section>
-
-<!-- 品牌排行榜 + 聯盟連結 -->
-<section class="container section" id="comparison">
-    <h2 class="section-title">🏆 熱門美妝品牌排行榜</h2>
-    <table class="comparison-table">
-        <thead>
-            <tr><th>品牌</th><th>最佳品項</th><th>Rakuten 回饋</th><th>前往購買</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Estée Lauder</td><td>特潤超導修護露</td><td>10% 現金回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
-            <tr><td>La Mer</td><td>經典乳霜</td><td>12% 回饋 + 首購禮</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
-            <tr><td>SK-II</td><td>青春露</td><td>8% 回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
-            <tr><td>Lancôme</td><td>超未來肌因賦活露</td><td>11% 回饋</td><td><a href="https://www.rakuten.com/" target="_blank" class="btn">購買</a></td></tr>
-        </tbody>
-    </table>
-</section>
-
-<!-- 關於我們 + 免責聲明 -->
-<section class="container section" id="about">
-    <h2 class="section-title">📝 關於 GlowLab</h2>
-    <div style="background: var(--soft-gray); padding: 32px; border-radius: var(--radius);">
-        <p style="margin-bottom: 16px;">GlowLab 專注於專業美妝評測，所有產品皆經團隊實測至少 2 週，並以科學角度分析成分。我們與 Rakuten 合作，讀者透過站內連結購買，可獲最高現金回饋，同時支持我們持續產出深度內容。</p>
-        <p>📌 本站為 Rakuten 認證推廣夥伴，部分連結為聯盟網址，但評測內容維持 100% 獨立公正。</p>
-    </div>
-</section>
-
-<footer>
     <div class="container">
-        <div class="footer-inner">
-            <div>🌸 GlowLab — 你的專業美妝顧問</div>
-            <div>📧 合作邀約：hello@glowlab.com</div>
+        <div class="hero">
+            <h2>Is Oribe Worth the Hype?</h2>
+            <p>We break down their best-selling products to see if the luxury price tag delivers real salon-quality results at home.</p>
         </div>
-        <div class="affiliate-disclosure">
-            * 部分連結為 Rakuten 聯盟行銷連結，您透過此連結購買，我們可能會獲得少許佣金，但價格不受影響。
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <!-- Replace the text below with an actual <img> tag when you have a photo -->
+                
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Dry Texturizing Spray</h3>
+                <div class="rating">★★★★★ (5/5)</div>
+                <p>The cult classic. It functions as a dry shampoo and a volume-builder all in one, leaving no white residue behind. It absorbs oil at the roots while adding incredible grit and hold for second-day hair.</p>
+                <div class="pros-cons">
+                    <div>
+                        <strong>Pros:</strong>
+                        <ul>
+                            <li>Massive volume without stiffness</li>
+                            <li>Invisible formula (no white chalk)</li>
+                            <li>The signature scent doubles as perfume</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Cons:</strong>
+                        <ul>
+                            <li>Premium price tag</li>
+                            <li>Aerosol runs out relatively fast</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Add your affiliate link inside the href="..." below -->
+                <a href="YOUR_AFFILIATE_LINK_HERE" class="buy-button">Check Price</a>
+            </div>
         </div>
-        <div class="affiliate-disclosure" style="margin-top: 8px;">
-            © 2025 GlowLab All Rights Reserved.
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <!-- Replace the text below with an actual <img> tag when you have a photo -->
+                
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Gold Lust Nourishing Hair Oil</h3>
+                <div class="rating">★★★★☆ (4.5/5)</div>
+                <p>A lightweight liquid gold that absorbs instantly to restore hair to its prime. Infused with jasmine, edelweiss flower, and argan extracts, it's perfect for taming frizz and adding a glossy finish without weighing hair down.</p>
+                <div class="pros-cons">
+                    <div>
+                        <strong>Pros:</strong>
+                        <ul>
+                            <li>Weightless, non-greasy formula</li>
+                            <li>Instantly smooths split ends and frizz</li>
+                            <li>Provides thermal heat protection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>Cons:</strong>
+                        <ul>
+                            <li>Heavy glass bottle isn't travel-friendly</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Add your affiliate link inside the href="..." below -->
+                <a href="YOUR_AFFILIATE_LINK_HERE" class="buy-button">Check Price</a>
+            </div>
         </div>
     </div>
-</footer>
 
-<!-- 簡易 mobile menu -->
-<script>
-    document.querySelector('.mobile-menu')?.addEventListener('click', () => {
-        const nav = document.querySelector('nav');
-        if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-    });
-</script>
+    <footer>
+        <p>© 2026 The Luxe Edit. Disclaimer: This page contains affiliate links, meaning we may earn a commission if you make a purchase.</p>
+    </footer>
 </body>
 </html>
