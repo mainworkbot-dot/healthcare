@@ -1,563 +1,1905 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Oribe | Hair Health Archive — Clinical Diagnosis & Solution</title>
-  <!-- Professional Font System: Modern, Elegant Sans-Serif -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoveConnect Pro | Premium Dating Advice & Relationship Strategies</title>
+    <meta name="description" content="Expert dating advice and relationship strategies. Reviews of top dating sites and apps to help you find meaningful connections.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #e91e63;
+            --primary-dark: #c2185b;
+            --secondary: #9c27b0;
+            --accent: #ff4081;
+            --dark: #2d2b55;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --info: #2196f3;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius: 10px;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #231f1b;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            scroll-behavior: smooth;
+        }
 
-    /* premium header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ece4db;
-      padding: 20px 0;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .header-inner {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+        ul {
+            list-style: none;
+        }
 
-    .logo-area h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      font-size: 1.75rem;
-      letter-spacing: -0.3px;
-      color: #231f1b;
-    }
-    .logo-area .tag {
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      color: #7c6b5a;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
+        img {
+            max-width: 100%;
+        }
 
-    .trust-badge {
-      display: flex;
-      gap: 24px;
-    }
-    .trust-badge span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #4f3e2e;
-      background: #f6f2ed;
-      padding: 5px 14px;
-      border-radius: 40px;
-      letter-spacing: 0.2px;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    /* hero */
-    .hero-section {
-      margin: 48px 0 56px;
-      border-bottom: 1px solid #f0e7df;
-      padding-bottom: 48px;
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #b37b48;
-      font-weight: 600;
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: #1f1b17;
-      max-width: 780px;
-    }
-    .hero-description {
-      font-size: 1.05rem;
-      color: #4c443c;
-      max-width: 620px;
-      margin-top: 8px;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
 
-    /* section heading */
-    .section-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin: 64px 0 32px 0;
-      letter-spacing: -0.2px;
-      color: #1f1a15;
-      border-left: 3px solid #d6b18b;
-      padding-left: 20px;
-    }
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+        }
 
-    /* ARTICLE CARDS - each product becomes a diagnostic story */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 40px;
-      margin-bottom: 56px;
-    }
-    .article-card {
-      background: #ffffff;
-      border-radius: 24px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid #efe4db;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-    }
-    .article-card:hover {
-      transform: translateY(-6px);
-      border-color: #dcc9b8;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-    }
-    .article-badge {
-      background: #faf3ec;
-      padding: 12px 20px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #b87a4b;
-      text-transform: uppercase;
-      border-bottom: 1px solid #f0e2d6;
-    }
-    .article-content {
-      padding: 24px 24px 20px;
-      flex: 1;
-    }
-    .product-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: #9b5e2e;
-      margin-bottom: 6px;
-    }
-    .collection-ref {
-      font-size: 0.7rem;
-      color: #9f8a76;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 18px;
-      display: block;
-    }
-    .diagnosis {
-      background: #fef7f0;
-      padding: 14px 16px;
-      border-radius: 16px;
-      margin: 16px 0;
-      border-left: 3px solid #d6b18b;
-    }
-    .diagnosis h4 {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #ac7348;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
-    .diagnosis p {
-      font-size: 0.85rem;
-      color: #4e3e2f;
-      line-height: 1.45;
-    }
-    .solution-text {
-      font-size: 0.9rem;
-      color: #2c241e;
-      margin: 16px 0;
-      line-height: 1.5;
-    }
-    .product-specs {
-      background: #faf8f5;
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .price-tag {
-      font-weight: 700;
-      color: #b06a3b;
-      font-size: 1rem;
-    }
-    .btn-purchase-article {
-      width: 100%;
-      background: #2b241f;
-      color: white;
-      border: none;
-      padding: 12px 0;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 12px;
-      font-family: inherit;
-    }
-    .btn-purchase-article:hover {
-      background: #8b5838;
-    }
-    .footnote {
-      font-size: 0.7rem;
-      color: #9b8a78;
-      margin-top: 12px;
-      text-align: center;
-    }
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
 
-    /* pricing table (supporting data) */
-    .pricing-spec {
-      background: #faf8f5;
-      border-radius: 24px;
-      padding: 28px 32px;
-      margin: 48px 0 56px;
-      border: 1px solid #ede1d6;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
-    .price-row {
-      background: white;
-      border-radius: 16px;
-      padding: 12px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border: 1px solid #efeadf;
-    }
-    .buy-micro {
-      background: none;
-      border: none;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #b57346;
-      cursor: pointer;
-      margin-left: 14px;
-      text-decoration: underline;
-    }
+        .btn-secondary:hover {
+            background-color: #7b1fa2;
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
+        }
 
-    /* Oribe Standard Panel */
-    .standards-panel {
-      background: #f5efe8;
-      border-radius: 24px;
-      padding: 36px 40px;
-      margin: 48px 0 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-    }
-    .standard-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 20px 0 8px;
-      list-style: none;
-    }
-    .standard-list li {
-      background: #ffffffdb;
-      padding: 5px 16px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #4e3824;
-      border: 1px solid #e2d2c4;
-    }
-    .seal-emblem {
-      background: #fdf9f4;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #b56a3a;
-      border: 1px solid #ddc9b8;
-    }
+        .btn-large {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+        }
 
-    .primary-cta {
-      text-align: center;
-      margin: 56px 0 48px;
-    }
-    .btn-primary {
-      background: #2b241f;
-      color: white;
-      border: none;
-      padding: 14px 44px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: 44px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover {
-      background: #8b5838;
-    }
-    .footer-note {
-      border-top: 1px solid #ece2d9;
-      margin-top: 64px;
-      padding: 32px 0 40px;
-      font-size: 0.7rem;
-      color: #8a7a6b;
-      text-align: center;
-    }
-    @media (max-width: 700px) {
-      .container { padding: 0 20px; }
-      .hero-title { font-size: 2.2rem; }
-      .articles-grid { gap: 24px; }
-    }
-  </style>
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+            background-color: rgba(233, 30, 99, 0.1);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Ad Container Styles */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: var(--radius);
+        }
+
+        .MainAdverTiseMentDiv {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="1000,100 1000,0 0,100"></polygon></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Affiliate Banner */
+        .affiliate-banner {
+            background: linear-gradient(to right, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .affiliate-banner a {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        /* Featured Posts */
+        .featured-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .post-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .post-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .post-card:hover .post-img img {
+            transform: scale(1.1);
+        }
+
+        .post-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .post-content {
+            padding: 25px;
+        }
+
+        .post-category {
+            display: inline-block;
+            background-color: var(--light-gray);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .post-meta img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Expandable Article Content */
+        .article-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-top: 20px;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 20px;
+        }
+
+        .article-content.expanded {
+            max-height: 3000px;
+        }
+
+        .article-content h4 {
+            margin: 20px 0 10px;
+            color: var(--dark);
+        }
+
+        .article-content p, .article-content li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .article-content ol, .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .article-content strong {
+            color: var(--dark);
+        }
+
+        /* Dating Site Reviews */
+        .reviews {
+            background-color: var(--light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            padding: 25px 25px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .review-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            margin-right: 15px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .review-title {
+            flex: 1;
+        }
+
+        .review-rating {
+            display: flex;
+            align-items: center;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .review-rating i {
+            margin-right: 5px;
+        }
+
+        .review-content {
+            padding: 20px 25px;
+        }
+
+        .review-features {
+            margin: 15px 0;
+        }
+
+        .review-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .review-features li i {
+            color: var(--success);
+            margin-right: 10px;
+        }
+
+        .review-cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Quiz Section */
+        .quiz {
+            background: linear-gradient(135deg, var(--info), var(--secondary));
+            color: white;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiz-step {
+            display: none;
+        }
+
+        .quiz-step.active {
+            display: block;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quiz-option.selected {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            background-color: var(--light);
+        }
+
+        .stories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .story-quote:before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: -10px;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .story-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        /* Dating Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        /* Comparison Table */
+        .comparison {
+            background-color: var(--light);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(233, 30, 99, 0.05);
+        }
+
+        .comparison-table .rating {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        /* Lead Magnet Section */
+        .lead-magnet {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lead-magnet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="0,0 0,100 1000,0"></polygon></svg>');
+            background-size: cover;
+        }
+
+        .lead-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lead-magnet .section-title h2 {
+            color: white;
+        }
+
+        .lead-magnet .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .lead-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .lead-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .lead-form button {
+            padding: 15px 30px;
+            background-color: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .lead-form button:hover {
+            background-color: #1f1d3d;
+            transform: translateY(-3px);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .affiliate-disclosure {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form, .lead-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 15px;
+            }
+
+            .lead-form input, .lead-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 90px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo-area">
-      <h1>Hair Health Archive</h1>
-      <div class="tag">diagnose · restore · elevate with Oribe</div>
+    <!-- Affiliate Banner -->
+    <div class="affiliate-banner">
+        <div class="container">
+            <i class="fas fa-star"></i> TOP RATED DATING SITES: <a href="https://www.match.com" target="_blank" id="top-affiliate-link">Find Your Perfect Match Today!</a> <i class="fas fa-star"></i>
+        </div>
     </div>
-    <div class="trust-badge">
-      <span>🔬 Derm‑tested</span>
-      <span>🌿 Vegan + Cruelty‑free</span>
-      <span>🚫 Sulfate‑free standard</span>
-    </div>
-  </div>
-</header>
 
-<main>
-  <div class="container">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-heart"></i>Love<span>Connect</span>Pro</a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#dating-tips" class="nav-link">Dating Tips</a></li>
+                    <li><a href="#site-reviews" class="nav-link">Site Reviews</a></li>
+                    <li><a href="#success-stories" class="nav-link">Success Stories</a></li>
+                    <li><a href="#dating-guides" class="nav-link">Dating Guides</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
-    <div class="hero-section">
-      <div class="hero-eyebrow">Oribe · Evidence‑Based Hair Healthcare</div>
-      <h1 class="hero-title">Identify your hair situation. Discover the clinical solution.</h1>
-      <p class="hero-description">Each article below addresses a specific hair health condition — from structural fatigue to scalp imbalance — and prescribes the exact Oribe collection scientifically formulated to reverse the damage.</p>
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Find Meaningful Connections With Expert Dating Advice</h1>
+            <p>Get proven strategies, dating site reviews, and relationship guidance to help you navigate modern dating and find lasting love.</p>
+            <div class="hero-buttons">
+                <a href="https://www.match.com" target="_blank" class="btn btn-large" id="cta-main"><i class="fas fa-arrow-right"></i> Discover Top Dating Sites</a>
+                <a href="#dating-guides" class="btn btn-secondary btn-large"><i class="fas fa-book"></i> Read Our Dating Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2M+</div>
+                <div class="stat-text">Successful Matches</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-text">Expert Articles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-text">Dating Sites Reviewed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-text">User Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Placement 1 -->
+    <div class="ad-container">
+        <div class='MainAdverTiseMentDiv' data-publisher="eyJpdiI6IkwrUzZ3b002ZlpxVWN4S3o5Vmltemc9PSIsInZhbHVlIjoiOU4vbmFFMEIrTFZ4d0pvaTA3UG1RZz09IiwibWFjIjoiOTA1MDRmZjBjZWZlYzA3ZjgwMDdhOTJkZjFkMzM3ZTA4Yzk0ODlkYWE0MGY2ZDBkNTY4OGRjMTIyMTZmYTM4YyIsInRhZyI6IiJ9" data-adsize="350x90"></div>
     </div>
 
-    <!-- ARTICLES: each card = hair situation diagnosis + product sell (article style) -->
-    <div class="section-heading">Clinical dossiers · diagnose & treat</div>
-    <div class="articles-grid">
-      
-      <!-- Article 1: Gold Lust - Aging / Damaged / Treated Hair -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.1</div>
-        <div class="article-content">
-          <div class="product-title">Gold Lust™ Repair & Restore</div>
-          <span class="collection-ref">Gold Lust Collection · repair & restore</span>
-          <div class="diagnosis">
-            <h4>🔬 The hair situation</h4>
-            <p>Chemical treatments, heat styling, or aging have compromised the hair’s lipid layer. Cuticle cracks, protein depletion, and loss of elasticity lead to brittleness, split ends, and dullness. Hair feels straw-like and refuses to hold moisture.</p>
-          </div>
-          <div class="solution-text">
-            <strong>⚜️ The Oribe intervention:</strong> Gold Lust’s rare oil infusion (bourgogne truffle, maracuja, argan) restores the lipid barrier. The Repair & Restore Shampoo + Conditioner system rebuilds keratin infrastructure while UV filters prevent future photoaging. For advanced cases, the Nourishing Hair Oil seals and regenerates.
-          </div>
-          <div class="product-specs">
-            <span>📦 Sizes: Shampoo 8.5 oz / Conditioner 6.8 oz / Oil 3.4 oz</span>
-            <span class="price-tag">From $56 – $59</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🛒 Treat damaged hair → Shop Gold Lust</button>
-          <div class="footnote">✔️ Color‑safe · keratin‑treatment safe</div>
+    <!-- Featured Posts Section -->
+    <section class="section" id="dating-tips">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Dating Advice</h2>
+                <p>Expert tips to improve your dating life and relationship skills</p>
+            </div>
+            <div class="featured-posts">
+                <!-- Post 1 -->
+                <div class="post-card" data-article="article1">
+                    <div class="post-img">
+                        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="First Date Tips">
+                        <div class="post-badge">POPULAR</div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">First Dates</span>
+                        <h3 class="post-title">10 First Date Conversation Starters That Actually Work</h3>
+                        <p class="post-excerpt">Break the ice and create meaningful connections with these proven conversation starters for your first date.</p>
+                        <div class="article-content" id="article1-content">
+                            <h4>Why Conversation Starters Matter</h4>
+                            <p>First dates can be nerve-wracking, but having a few conversation starters in your back pocket can help ease the tension and create a comfortable atmosphere where both people can be themselves.</p>
+                            
+                            <h4>Top 10 Conversation Starters</h4>
+                            <ol>
+                                <li><strong>"What's the most interesting thing you've done recently?"</strong> - This open-ended question allows your date to share something they're passionate about.</li>
+                                <li><strong>"If you could travel anywhere right now, where would you go?"</strong> - Travel questions reveal interests and dreams.</li>
+                                <li><strong>"What's your favorite way to spend a weekend?"</strong> - This gives insight into their lifestyle and hobbies.</li>
+                                <li><strong>"Tell me about something that made you laugh recently."</strong> - Humor is a great bonding tool.</li>
+                                <li><strong>"What's the best book/movie/TV show you've experienced lately?"</strong> - Cultural interests can spark great conversations.</li>
+                                <li><strong>"What's a skill you'd love to learn?"</strong> - This reveals aspirations and interests.</li>
+                                <li><strong>"What's your favorite childhood memory?"</strong> - Nostalgic topics often create warm feelings.</li>
+                                <li><strong>"If you could have dinner with anyone, living or dead, who would it be?"</strong> - This reveals values and inspirations.</li>
+                                <li><strong>"What's something you're passionate about?"</strong> - Passion is attractive and engaging.</li>
+                                <li><strong>"What's the best piece of advice you've ever received?"</strong> - This can lead to meaningful conversation.</li>
+                            </ol>
+                            
+                            <h4>Tips for Successful Conversations</h4>
+                            <ul>
+                                <li>Listen actively and show genuine interest</li>
+                                <li>Ask follow-up questions</li>
+                                <li>Share about yourself too - conversation is a two-way street</li>
+                                <li>Avoid controversial topics on the first date</li>
+                                <li>Be present and put your phone away</li>
+                            </ul>
+                            
+                            <div style="background-color: var(--light-gray); padding: 20px; border-radius: var(--radius); margin-top: 20px;">
+                                <h4>Ready to put these tips into practice?</h4>
+                                <p>Check out our recommended dating sites to find potential matches:</p>
+                                <a href="https://www.match.com" target="_blank" class="btn" style="margin-top: 10px;">Browse Dating Sites</a>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author">
+                            <div>
+                                <strong>Sarah Johnson</strong>
+                                <div>May 15, 2023 • 8 min read</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card" data-article="article2">
+                    <div class="post-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Online Dating">
+                        <div class="post-badge">NEW</div>
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Online Dating</span>
+                        <h3 class="post-title">Creating an Authentic Dating Profile That Attracts the Right People</h3>
+                        <p class="post-excerpt">Learn how to showcase your true self while filtering for compatible matches in the digital dating world.</p>
+                        <div class="article-content" id="article2-content">
+                            <h4>The Importance of Authenticity</h4>
+                            <p>In the world of online dating, authenticity is your greatest asset. When your profile genuinely represents who you are, you're more likely to attract people who will appreciate the real you, leading to more meaningful connections.</p>
+                            
+                            <h4>Crafting Your Bio</h4>
+                            <p>Your bio should be a balanced mix of information about yourself and what you're looking for. Avoid clichés like "I love to travel" or "I enjoy having fun" - be specific! Instead of "I like hiking," try "I love exploring local trails every weekend and just completed my first 10-mile hike."</p>
+                            
+                            <h4>Choosing the Right Photos</h4>
+                            <ul>
+                                <li>Include a clear, smiling headshot as your main photo</li>
+                                <li>Show yourself engaged in hobbies or activities you enjoy</li>
+                                <li>Include at least one full-body photo</li>
+                                <li>Avoid group photos where it's unclear which person is you</li>
+                                <li>Steer clear of overly filtered or outdated photos</li>
+                            </ul>
+                            
+                            <h4>Profile Do's and Don'ts</h4>
+                            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 250px;">
+                                    <h5 style="color: green;">Do:</h5>
+                                    <ul>
+                                        <li>Be specific about your interests</li>
+                                        <li>Mention what you're looking for in a partner</li>
+                                        <li>Show your personality through your word choices</li>
+                                        <li>Proofread for spelling and grammar</li>
+                                        <li>Update your profile regularly</li>
+                                    </ul>
+                                </div>
+                                <div style="flex: 1; min-width: 250px;">
+                                    <h5 style="color: red;">Don't:</h5>
+                                    <ul>
+                                        <li>Use overly sexual or demanding language</li>
+                                        <li>List only physical requirements for a partner</li>
+                                        <li>Include group photos without identifying yourself</li>
+                                        <li>Use photos that don't look like you</li>
+                                <li>Be negative or complain about past relationships</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: var(--light-gray); padding: 20px; border-radius: var(--radius); margin-top: 20px;">
+                                <h4>Ready to create your perfect profile?</h4>
+                                <p>Join one of our recommended dating platforms to get started:</p>
+                                <a href="https://www.eharmony.com" target="_blank" class="btn" style="margin-top: 10px;">Find Your Platform</a>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+                            <div>
+                                <strong>Michael Torres</strong>
+                                <div>April 28, 2023 • 6 min read</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post-card" data-article="article3">
+                    <div class="post-img">
+                        <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Relationship Advice">
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">Relationships</span>
+                        <h3 class="post-title">5 Communication Habits That Strengthen Any Relationship</h3>
+                        <p class="post-excerpt">Master these essential communication techniques to build trust, intimacy, and lasting connections.</p>
+                        <div class="article-content" id="article3-content">
+                            <h4>Why Communication Matters</h4>
+                            <p>Effective communication is the foundation of any healthy relationship. It builds trust, resolves conflicts, and deepens intimacy between partners. Without good communication, even the strongest connections can falter over time.</p>
+                            
+                            <h4>The 5 Essential Communication Habits</h4>
+                            <ol>
+                                <li>
+                                    <strong>Active Listening</strong>
+                                    <p>Truly focus on what your partner is saying without planning your response. Show you're listening through eye contact, nodding, and paraphrasing what you've heard to ensure understanding. This makes your partner feel valued and understood.</p>
+                                </li>
+                                <li>
+                                    <strong>Using "I" Statements</strong>
+                                    <p>Express your feelings and needs without blaming your partner. Instead of "You always..." try "I feel..." This reduces defensiveness and promotes understanding. For example, "I feel hurt when plans change last minute" instead of "You always cancel our plans."</p>
+                                </li>
+                                <li>
+                                    <strong>Expressing Appreciation Regularly</strong>
+                                    <p>Don't assume your partner knows you appreciate them. Verbalize your gratitude for both big and small things they do. Regular appreciation creates a positive atmosphere and reinforces loving behaviors.</p>
+                                </li>
+                                <li>
+                                    <strong>Addressing Issues Promptly</strong>
+                                    <p>Don't let resentments build up. Address concerns when they're small, using a calm and respectful tone. Waiting until you're extremely frustrated often leads to explosive arguments rather than productive discussions.</p>
+                                </li>
+                                <li>
+                                    <strong>Creating Space for Difficult Conversations</strong>
+                                    <p>Set aside dedicated time for important discussions when you're both calm and focused, rather than having them in the heat of the moment. This ensures both partners can express themselves fully without distractions or heightened emotions.</p>
+                                </li>
+                            </ol>
+                            
+                            <h4>Communication Pitfalls to Avoid</h4>
+                            <ul>
+                                <li>Stonewalling or shutting down during conflict</li>
+                                <li>Using absolute language like "always" and "never"</li>
+                                <li>Bringing up past issues during current disagreements</li>
+                                <li>Making assumptions instead of asking for clarification</li>
+                                <li>Interrupting while your partner is speaking</li>
+                            </ul>
+                            
+                            <div style="background-color: var(--light-gray); padding: 20px; border-radius: var(--radius); margin-top: 20px;">
+                                <h4>Looking to meet someone who communicates well?</h4>
+                                <p>Check out dating sites focused on meaningful connections:</p>
+                                <a href="https://www.hinge.co" target="_blank" class="btn" style="margin-top: 10px;">Find Quality Matches</a>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Author">
+                            <div>
+                                <strong>Dr. Lisa Chen</strong>
+                                <div>June 2, 2023 • 10 min read</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Article 2: Signature Collection - Everyday fatigue / lack of volume & texture -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.2</div>
-        <div class="article-content">
-          <div class="product-title">Signature Collection</div>
-          <span class="collection-ref">Signature · everyday luxury</span>
-          <div class="diagnosis">
-            <h4>💨 The hair situation</h4>
-            <p>Lifeless, fine, or normal hair that suffers from environmental stressors: humidity, hard water, and pollution weigh strands down. Loss of natural texture, flat roots, and styling fatigue — hair lacks memory and responsiveness.</p>
-          </div>
-          <div class="solution-text">
-            <strong>✨ The Oribe intervention:</strong> Dry Texturizing Spray (iconic) absorbs oil while building second‑day volume and grit. Supershine Moisturizing Cream provides weightless conditioning with anti‑humidity shield. Royal Blowout Heat Styling Spray protects up to 450°F while cutting blow‑dry time by half.
-          </div>
-          <div class="product-specs">
-            <span>💧 Key SKUs: Dry Texturizing Spray (8.5 oz) · Supershine Cream (5 oz)</span>
-            <span class="price-tag">$52 – $72</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">💨 Revive everyday hair → Shop Signature</button>
-          <div class="footnote">✔️ UV protection · weightless hydration</div>
+    <!-- Dating Tips Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Essential Dating Tips</h2>
+                <p>Practical advice to improve your dating success</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Be Authentic</h3>
+                    <p>Show your true self from the beginning to attract compatible matches.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Communication</h3>
+                    <p>Clear, honest communication builds trust and understanding.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Patience</h3>
+                    <p>Finding the right connection takes time - don't rush the process.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-laugh"></i>
+                    </div>
+                    <h3>Have Fun</h3>
+                    <p>Dating should be enjoyable - keep a positive attitude.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Article 3: Hair Alchemy - Breakage / Structural Weakness / Fragile strands -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.3</div>
-        <div class="article-content">
-          <div class="product-title">Hair Alchemy™</div>
-          <span class="collection-ref">Hair Alchemy · structural fortifying</span>
-          <div class="diagnosis">
-            <h4>🧬 The hair situation</h4>
-            <p>Excessive breakage from brushing, tension, or over‑processing. Hair stretches and snaps, showing visible mid‑shaft fractures. The cortex is compromised, leading to constant shedding and inability to grow past a certain length. Weak elasticity = mechanical fragility.</p>
-          </div>
-          <div class="solution-text">
-            <strong>🏛️ The Oribe intervention:</strong> Hair Alchemy Fortifying Treatment Serum rebuilds the internal cross‑links using a biomimetic peptide + ceramide complex. The collection increases tensile strength by +54%* and reduces breakage from styling. Used daily, it transforms fragile strands into resilient fibers.
-          </div>
-          <div class="product-specs">
-            <span>⭐ Hero: Fortifying Treatment Serum (5.9 oz)</span>
-            <span class="price-tag">$66</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🧪 Stop breakage → Shop Hair Alchemy</button>
-          <div class="footnote">*clinical test vs untreated hair</div>
+    <!-- Dating Site Reviews -->
+    <section class="section reviews" id="site-reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Top Dating Site Reviews</h2>
+                <p>Unbiased reviews of the best dating platforms to help you find your perfect match</p>
+            </div>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card" data-review="match">
+                    <div class="review-header">
+                        <div class="review-logo">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="review-title">
+                            <h3>Match.com</h3>
+                            <p>Serious Relationships</p>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>One of the most trusted dating sites with a proven track record of successful relationships.</p>
+                        <ul class="review-features">
+                            <li><i class="fas fa-check"></i> Advanced matching algorithm</li>
+                            <li><i class="fas fa-check"></i> Large user base</li>
+                            <li><i class="fas fa-check"></i> Free basic membership</li>
+                            <li><i class="fas fa-check"></i> Events and meetups</li>
+                        </ul>
+                        <div class="review-cta">
+                            <a href="https://www.match.com" target="_blank" class="btn btn-large">Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card" data-review="eharmony">
+                    <div class="review-header">
+                        <div class="review-logo">
+                            <i class="fab fa-gg"></i>
+                        </div>
+                        <div class="review-title">
+                            <h3>eHarmony</h3>
+                            <p>Compatibility Matching</p>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i> 4.7
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>In-depth compatibility quiz matches you with highly compatible partners for long-term relationships.</p>
+                        <ul class="review-features">
+                            <li><i class="fas fa-check"></i> Detailed compatibility test</li>
+                            <li><i class="fas fa-check"></i> Guided communication</li>
+                            <li><i class="fas fa-check"></i> Video dating features</li>
+                            <li><i class="fas fa-check"></i> Secure calling</li>
+                        </ul>
+                        <div class="review-cta">
+                            <a href="https://www.eharmony.com" target="_blank" class="btn btn-large">Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card" data-review="tinder">
+                    <div class="review-header">
+                        <div class="review-logo">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="review-title">
+                            <h3>Tinder</h3>
+                            <p>Casual & Social Dating</p>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>The world's most popular app for meeting new people with a simple swipe interface.</p>
+                        <ul class="review-features">
+                            <li><i class="fas fa-check"></i> Massive user base</li>
+                            <li><i class="fas fa-check"></i> Simple swipe interface</li>
+                            <li><i class="fas fa-check"></i> Free to use</li>
+                            <li><i class="fas fa-check"></i> Global reach</li>
+                        </ul>
+                        <div class="review-cta">
+                            <a href="https://tinder.com" target="_blank" class="btn btn-large">Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Article 4: Serene Scalp - Dandruff / Oil Imbalance / Density Concerns -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.4</div>
-        <div class="article-content">
-          <div class="product-title">Serene Scalp™</div>
-          <span class="collection-ref">Serene Scalp · microbiome therapy</span>
-          <div class="diagnosis">
-            <h4>🌿 The hair situation</h4>
-            <p>Chronic itching, visible flakes, excessive sebum or tightness — the scalp microbiome is dysregulated. Clogged follicles lead to thinning and reduced density. Inflammation creates an environment hostile to healthy growth.</p>
-          </div>
-          <div class="solution-text">
-            <strong>🌱 The Oribe intervention:</strong> Serene Scalp Shampoo balances yeast overgrowth with salicylic acid + prebiotics. Anti‑Dandruff Lotion calms flare‑ups, while the Scalp Revitalizing Serum stimulates microcirculation for density. Clinically tested to reduce flaking in 2 weeks and improve follicle anchorage.
-          </div>
-          <div class="product-specs">
-            <span>🧴 Scalp system: Shampoo, Anti‑Dandruff, Density Serum</span>
-            <span class="price-tag">$52 – $64</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🌾 Rebalance scalp → Shop Serene Scalp</button>
-          <div class="footnote">✔️ Dermatologist tested for sensitive scalps</div>
+    <!-- Comparison Table -->
+    <section class="section comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dating Site Comparison</h2>
+                <p>Compare the top dating platforms to find your perfect fit</p>
+            </div>
+            <div class="table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Dating Site</th>
+                            <th>Best For</th>
+                            <th>Free Version</th>
+                            <th>Premium Cost</th>
+                            <th>Our Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Match.com</strong></td>
+                            <td>Serious Relationships</td>
+                            <td><i class="fas fa-check" style="color: var(--success);"></i></td>
+                            <td>$20.99/month</td>
+                            <td class="rating">4.8/5</td>
+                            <td><a href="https://www.match.com" target="_blank" class="btn">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>eHarmony</strong></td>
+                            <td>Compatibility Matching</td>
+                            <td><i class="fas fa-check" style="color: var(--success);"></i></td>
+                            <td>$35.90/month</td>
+                            <td class="rating">4.7/5</td>
+                            <td><a href="https://www.eharmony.com" target="_blank" class="btn">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tinder</strong></td>
+                            <td>Casual Dating</td>
+                            <td><i class="fas fa-check" style="color: var(--success);"></i></td>
+                            <td>$9.99/month</td>
+                            <td class="rating">4.5/5</td>
+                            <td><a href="https://tinder.com" target="_blank" class="btn">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bumble</strong></td>
+                            <td>Women Making First Move</td>
+                            <td><i class="fas fa-check" style="color: var(--success);"></i></td>
+                            <td>$16.99/month</td>
+                            <td class="rating">4.6/5</td>
+                            <td><a href="https://bumble.com" target="_blank" class="btn">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hinge</strong></td>
+                            <td>Relationship-Focused</td>
+                            <td><i class="fas fa-check" style="color: var(--success);"></i></td>
+                            <td>$19.99/month</td>
+                            <td class="rating">4.4/5</td>
+                            <td><a href="https://hinge.co" target="_blank" class="btn">Visit Site</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Article 5: Côte d'Azur - Sensory wellness / Fragrance as self‑care ritual -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.5</div>
-        <div class="article-content">
-          <div class="product-title">Côte d'Azur</div>
-          <span class="collection-ref">Signature Fragrance · sensory health</span>
-          <div class="diagnosis">
-            <h4>🌸 The wellness situation</h4>
-            <p>Hair and skin need more than function — aromatic ritual reduces cortisol, elevates mood, and turns daily routine into therapy. Fragrance fatigue? The mind craves clean, sophisticated notes that last without overwhelming.</p>
-          </div>
-          <div class="solution-text">
-            <strong>🏝️ The Oribe intervention:</strong> Côte d'Azur line (perfume, body wash, hand cream) features Mediterranean notes of Calabrian bergamot, white butterfly jasmine, and sandalwood. Wear alone or layer with hair products for signature olfactory identity. Promotes relaxation and sensory joy.
-          </div>
-          <div class="product-specs">
-            <span>🎁 Eau de Parfum · Body Crème · Hand Cream</span>
-            <span class="price-tag">$48 – $165</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">🌊 Elevate ritual → Shop Côte d'Azur</button>
-          <div class="footnote">✔️ Clean vegan fragrance · no phthalates</div>
+    <!-- Success Stories -->
+    <section class="section success-stories" id="success-stories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Real people who found love through our recommended dating sites</p>
+            </div>
+            <div class="stories-container">
+                <div class="story-card">
+                    <div class="story-quote">
+                        After trying several dating apps without success, I followed the advice on LoveConnect Pro and created a better profile on Match.com. I met my now-fiancé within a month!
+                    </div>
+                    <div class="story-author">
+                        <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Jessica">
+                        <div>
+                            <strong>Jessica & Mark</strong>
+                            <div>Matched on Match.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-quote">
+                        The communication tips from LoveConnect Pro completely changed how I approach dating. I'm now in a healthy, happy relationship thanks to the guidance I found here.
+                    </div>
+                    <div class="story-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David">
+                        <div>
+                            <strong>David & Sarah</strong>
+                            <div>Met on eHarmony</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-quote">
+                        I was skeptical about online dating, but the detailed reviews helped me choose the right platform. I've been with my partner for over a year now!
+                    </div>
+                    <div class="story-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Amanda">
+                        <div>
+                            <strong>Amanda & Chris</strong>
+                            <div>Connected on Hinge</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Article 6: Gold Lust Hair Oil - extreme dehydration / brittle ends -->
-      <div class="article-card">
-        <div class="article-badge">📖 CLINICAL DOSSIER · VOL.6</div>
-        <div class="article-content">
-          <div class="product-title">Gold Lust Nourishing Hair Oil</div>
-          <span class="collection-ref">Gold Lust · ultimate repair oil</span>
-          <div class="diagnosis">
-            <h4>💧 The hair situation</h4>
-            <p>Severe dehydration, frizz that resists any serum, and ends that split within days of a trim. Even professional masks provide only temporary relief. The hair’s cuticle is lifted, allowing moisture to escape and pollution to penetrate.</p>
-          </div>
-          <div class="solution-text">
-            <strong>💎 The Oribe intervention:</strong> A dry oil blend with jasmine, edelweiss extract, and biotin. Seals the cuticle while delivering 72h hydration. Tames frizz, doubles as a pre‑shampoo treatment, and adds mirror shine without weight. Clinically proven to improve breakage by 85% after 2 weeks.
-          </div>
-          <div class="product-specs">
-            <span>⭐ 3.4 oz · multitasking elixir</span>
-            <span class="price-tag">$59</span>
-          </div>
-          <button class="btn-purchase-article oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">✨ Rescue dehydrated ends → Shop Oil</button>
-          <div class="footnote">✔️ Color‑safe · silicone‑free</div>
+    <!-- Quiz Section -->
+    <section class="section quiz" id="dating-guides">
+        <div class="container quiz-container">
+            <div class="section-title">
+                <h2>Find Your Perfect Dating Site</h2>
+                <p>Take our quick quiz to discover which dating platform is right for you</p>
+            </div>
+            
+            <div class="quiz-step active" id="step1">
+                <h3>What are you looking for in a relationship?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="serious">A serious, long-term relationship</div>
+                    <div class="quiz-option" data-value="casual">Something casual or open to possibilities</div>
+                    <div class="quiz-option" data-value="friends">New friends and social connections</div>
+                    <div class="quiz-option" data-value="marriage">Marriage and starting a family</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn" disabled>Previous</button>
+                    <button class="btn" id="next1">Next</button>
+                </div>
+            </div>
+            
+            <div class="quiz-step" id="step2">
+                <h3>How do you prefer to meet people?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="algorithm">Through detailed matching algorithms</div>
+                    <div class="quiz-option" data-value="swipe">Quick swiping and browsing</div>
+                    <div class="quiz-option" data-value="events">Through events and group activities</div>
+                    <div class="quiz-option" data-value="video">Video calls before meeting in person</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn" id="prev2">Previous</button>
+                    <button class="btn" id="next2">Next</button>
+                </div>
+            </div>
+            
+            <div class="quiz-step" id="step3">
+                <h3>What's your budget for dating services?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-value="free">Free only</div>
+                    <div class="quiz-option" data-value="low">Under $10/month</div>
+                    <div class="quiz-option" data-value="medium">$10-25/month</div>
+                    <div class="quiz-option" data-value="high">Over $25/month for premium features</div>
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn" id="prev3">Previous</button>
+                    <button class="btn" id="next3">See Results</button>
+                </div>
+            </div>
+            
+            <div class="quiz-step" id="results">
+                <h3>Your Perfect Dating Site Match</h3>
+                <div id="quiz-result-content">
+                    <!-- Results will be displayed here -->
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn" id="restart-quiz">Take Quiz Again</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Official Pricing & Sizing Table (supporting data) -->
-    <div class="pricing-spec">
-      <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.4rem;">Official price index · USD direct storefront</h3>
-      <p style="font-size:0.8rem; margin-bottom: 18px;">Verified Oribe MSRP — "Check Price" accuracy</p>
-      <div class="pricing-grid">
-        <div class="price-row"><span>Dry Texturizing Spray (8.5 oz)</span><span class="amount">$52.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-        <div class="price-row"><span>Royal Blowout Heat Styling Spray</span><span class="amount">$72.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-        <div class="price-row"><span>Gold Lust Shampoo (8.5 oz)</span><span class="amount">$56.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-        <div class="price-row"><span>Gold Lust Conditioner</span><span class="amount">$59.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-        <div class="price-row"><span>Gold Lust Hair Oil</span><span class="amount">$59.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-        <div class="price-row"><span>Hair Alchemy Fortifying Serum</span><span class="amount">$66.00</span><button class="buy-micro oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">purchase</button></div>
-      </div>
-    </div>
+    <!-- Lead Magnet Section -->
+    <section class="section lead-magnet">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Our Free Dating Guide</h2>
+                <p>Download our exclusive 25-page guide "The Modern Dating Playbook" with proven strategies for finding love online</p>
+            </div>
+            <div class="lead-content">
+                <form class="lead-form" id="lead-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit">Get Free Guide <i class="fas fa-download"></i></button>
+                </form>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- The Oribe Standard Panel -->
-    <div class="standards-panel">
-      <div class="standards-content">
-        <h3>The Oribe Standard · formulation integrity</h3>
-        <ul class="standard-list">
-          <li>Dermatologist‑tested</li><li>UV protective complex</li><li>Color & keratin‑safe</li>
-          <li>100% vegan & cruelty‑free</li><li>Gluten‑free</li><li>No parabens, SLS, SLES</li><li>No sodium chloride</li>
-        </ul>
-      </div>
-      <div class="seal-emblem">ORIBE<br>STANDARD<br>⚜️</div>
-    </div>
+    <!-- Newsletter Section -->
+    <section class="section newsletter" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stay Updated</h2>
+                <p>Get weekly dating tips, site reviews, and exclusive offers delivered to your inbox</p>
+            </div>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
 
-    <!-- Primary Shop CTA -->
-    <div class="primary-cta">
-      <button class="btn-primary oribe-purchase" data-url="https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ">Shop Official Oribe · 2 Deluxe Samples + Free Shipping</button>
-    </div>
-  </div>
-</main>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h3>LoveConnect Pro</h3>
+                    <p>Your trusted source for modern dating advice, relationship guidance, and honest dating site reviews.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
 
-<footer class="footer-note">
-  <div class="container">
-    <p>© 2025 Hair Health Archive — diagnostic reviews & Oribe clinical monographs. Affiliate partner with Oribe via Rakuten.</p>
-  </div>
-</footer>
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#dating-tips">Dating Tips</a></li>
+                        <li><a href="#site-reviews">Site Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
 
-<script>
-  // Universal purchase handler: all buttons with class "oribe-purchase" open the affiliate link
-  document.querySelectorAll('.oribe-purchase').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const url = this.getAttribute('data-url');
-      if (url) window.open(url, '_blank', 'noopener,noreferrer');
-      else window.open('https://www.oribe.com/?utm_source=RAN&utm_medium=affiliate&utm_content=Rakuten+Rewards&utm_campaign=3&ranMID=53141&ranEAID=AysPbYF8vuM&ranSiteID=AysPbYF8vuM-gmdyc0Mljp6krd5QNOSaXQ', '_blank');
-    });
-  });
-</script>
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#dating-tips">First Dates</a></li>
+                        <li><a href="#dating-tips">Online Dating</a></li>
+                        <li><a href="#dating-tips">Communication</a></li>
+                        <li><a href="#dating-tips">Relationship Advice</a></li>
+                        <li><a href="#success-stories">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@loveconnectpro.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Dating Street, Love City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="affiliate-disclosure">
+                <h4>Affiliate Disclosure</h4>
+                <p>LoveConnect Pro is a participant in various affiliate programs, including CrackRevenue. We may earn a commission when you click on links to dating sites and services that we review. This helps support our site and allows us to continue providing valuable dating advice and reviews to our readers.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 LoveConnect Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Added Affiliate Script -->
+    <script src="https://affiliates.serv.adse.site/assets/ads/ad.js" class="adScriptClass"></script>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for footer links
+        document.querySelectorAll('.footer-column a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle internal links (starting with #)
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        document.querySelector(`nav a[href="${targetId}"]`).classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Expandable article content
+        document.querySelectorAll('.post-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on a button inside the card
+                if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+                
+                const articleId = this.getAttribute('data-article');
+                const content = document.getElementById(`${articleId}-content`);
+                
+                // Close any other expanded articles
+                document.querySelectorAll('.article-content').forEach(article => {
+                    if (article !== content) {
+                        article.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle the expanded class
+                content.classList.toggle('expanded');
+                
+                // Scroll to the content if expanding
+                if (content.classList.contains('expanded')) {
+                    content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        });
+
+        // Quiz functionality
+        const quizData = {
+            answers: [],
+            results: {
+                'match': { score: 0, description: 'Match.com is perfect for those seeking serious relationships with detailed profiles and advanced matching.', url: 'https://www.match.com' },
+                'eharmony': { score: 0, description: 'eHarmony uses scientific compatibility matching for long-term relationships and marriage.', url: 'https://www.eharmony.com' },
+                'tinder': { score: 0, description: 'Tinder is great for casual dating, meeting new people, and social connections.', url: 'https://tinder.com' },
+                'bumble': { score: 0, description: 'Bumble empowers women to make the first move in dating, friendships, and networking.', url: 'https://bumble.com' },
+                'hinge': { score: 0, description: 'Hinge is designed to be deleted, focusing on meaningful connections and relationships.', url: 'https://hinge.co' }
+            }
+        };
+
+        // Quiz navigation
+        document.getElementById('next1').addEventListener('click', function() {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+        });
+
+        document.getElementById('prev2').addEventListener('click', function() {
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+        });
+
+        document.getElementById('next2').addEventListener('click', function() {
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step3').classList.add('active');
+        });
+
+        document.getElementById('prev3').addEventListener('click', function() {
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+        });
+
+        document.getElementById('next3').addEventListener('click', function() {
+            calculateResults();
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('results').classList.add('active');
+        });
+
+        document.getElementById('restart-quiz').addEventListener('click', function() {
+            document.getElementById('results').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            resetQuiz();
+        });
+
+        // Quiz option selection
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Store the selected value
+                const step = this.closest('.quiz-step').id;
+                quizData.answers[step] = this.getAttribute('data-value');
+            });
+        });
+
+        function calculateResults() {
+            // Reset scores
+            Object.keys(quizData.results).forEach(site => {
+                quizData.results[site].score = 0;
+            });
+            
+            // Calculate scores based on answers
+            if (quizData.answers.step1 === 'serious' || quizData.answers.step1 === 'marriage') {
+                quizData.results.match.score += 3;
+                quizData.results.eharmony.score += 3;
+                quizData.results.hinge.score += 2;
+            } else if (quizData.answers.step1 === 'casual') {
+                quizData.results.tinder.score += 3;
+                quizData.results.bumble.score += 2;
+            } else if (quizData.answers.step1 === 'friends') {
+                quizData.results.bumble.score += 3;
+                quizData.results.tinder.score += 2;
+            }
+            
+            if (quizData.answers.step2 === 'algorithm') {
+                quizData.results.eharmony.score += 3;
+                quizData.results.match.score += 2;
+            } else if (quizData.answers.step2 === 'swipe') {
+                quizData.results.tinder.score += 3;
+                quizData.results.bumble.score += 2;
+                quizData.results.hinge.score += 1;
+            } else if (quizData.answers.step2 === 'events') {
+                quizData.results.match.score += 2;
+            } else if (quizData.answers.step2 === 'video') {
+                quizData.results.eharmony.score += 2;
+                quizData.results.bumble.score += 1;
+            }
+            
+            if (quizData.answers.step3 === 'free') {
+                quizData.results.tinder.score += 2;
+                quizData.results.bumble.score += 1;
+            } else if (quizData.answers.step3 === 'low') {
+                quizData.results.tinder.score += 2;
+                quizData.results.bumble.score += 1;
+                quizData.results.hinge.score += 1;
+            } else if (quizData.answers.step3 === 'medium') {
+                quizData.results.match.score += 2;
+                quizData.results.hinge.score += 2;
+                quizData.results.bumble.score += 1;
+            } else if (quizData.answers.step3 === 'high') {
+                quizData.results.eharmony.score += 3;
+                quizData.results.match.score += 2;
+            }
+            
+            // Find top result
+            let topSite = '';
+            let topScore = -1;
+            
+            Object.keys(quizData.results).forEach(site => {
+                if (quizData.results[site].score > topScore) {
+                    topScore = quizData.results[site].score;
+                    topSite = site;
+                }
+            });
+            
+            // Display result
+            const resultContent = document.getElementById('quiz-result-content');
+            resultContent.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: white; margin-bottom: 20px;">${topSite.charAt(0).toUpperCase() + topSite.slice(1)}</h3>
+                    <p style="margin-bottom: 30px;">${quizData.results[topSite].description}</p>
+                    <a href="${quizData.results[topSite].url}" target="_blank" class="btn btn-large">Visit ${topSite.charAt(0).toUpperCase() + topSite.slice(1)}</a>
+                </div>
+            `;
+        }
+
+        function resetQuiz() {
+            quizData.answers = [];
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+        }
+
+        // Lead form submission
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // In a real implementation, you would send this data to your email service
+            alert(`Thank you ${name}! Your free dating guide has been sent to ${email}.`);
+            this.reset();
+            
+            // Track conversion (in a real implementation)
+            console.log(`Lead captured: ${name} (${email})`);
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+            this.reset();
+            
+            // Track subscription (in a real implementation)
+            console.log(`Newsletter subscription: ${email}`);
+        });
+    </script>
 </body>
 </html>
